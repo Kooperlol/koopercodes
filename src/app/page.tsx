@@ -27,9 +27,9 @@ export default function Home() {
   };
 
   return (
-    <div className="w-screen flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <Image
-        className="absolute object-cover min-h-screen w-screen max-h-screen"
+        className="top-0 left-0 absolute object-cover w-screen h-screen"
         priority
         draggable={false}
         src="/images/banner.svg"
@@ -40,7 +40,7 @@ export default function Home() {
       <div
         className="absolute bottom-0 mb-5 mouse-icon"
         style={{
-          transform: HeaderInView ? "none" : "translateY(00px)",
+          transform: HeaderInView ? "none" : "translateY(25px)",
           opacity: HeaderInView ? 1 : 0,
           transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
         }}
@@ -51,6 +51,7 @@ export default function Home() {
         <Particles
           id="tsparticles"
           url="/config/particles.json"
+          className="w-screen h-screen left-0 absolute top-0"
           style={{
             opacity: HeaderInView ? 1 : 0,
             transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
@@ -60,7 +61,8 @@ export default function Home() {
           }
         />
       )}
-      <div className="container">
+      <div className="container flex flex-col">
+        {/* Header */}
         <div className="h-screen relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center 2xl:justify-between justify-center items-center">
           <div
             style={{
@@ -81,15 +83,15 @@ export default function Home() {
               I'm <b>Kooper</b>
             </p>
             <TypeAnimation
-              className="2xl:text-8xl text-3xl"
+              className="2xl:text-6xl text-2xl"
               sequence={[
-                "I make websites",
+                "Web Developer",
                 1000,
-                "I make mobile apps",
+                "App Developer",
                 1000,
-                "I make games",
+                "Game Developer",
                 1000,
-                "I make software",
+                "Software Engineer",
                 1000,
               ]}
               wrapper="span"
@@ -116,6 +118,41 @@ export default function Home() {
             width={1080}
             height={1080}
           />
+        </div>
+        {/* About */}
+        <div className="flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center items-center justify-center py-8 gap-10 2xl:px-0 px-6">
+          <Image
+            className="rounded-full lg:w-1/3 w-1/2"
+            src="/images/about.png"
+            alt="Picture of Kooper"
+            draggable={false}
+            width={407}
+            height={612}
+          />
+          <div className="flex flex-col gap-5">
+            <p className="text-black text-4xl font-bold">Who am I?</p>
+            <div className="flex flex-col gap-3">
+              <p className="text-black text-2xl">
+                Hello! I'm Kooper, a developer based in{" "}
+                <span className="text-main font-bold">Madison, WI</span> who's
+                experienced in taking fullstack applications from scratch to
+                production.
+              </p>
+              <p className="text-black text-2xl">
+                I'm currently an incoming computer science student at{" "}
+                <span className="text-main font-bold">UW Madison</span>.
+              </p>
+              <p className="text-black text-2xl">
+                I'm passionate about creating projects and{" "}
+                <span className="text-main font-bold">
+                  learning new technologies
+                </span>
+                . I'm always looking for new opportunities to{" "}
+                <span className="text-main font-bold">collaborate</span> and{" "}
+                create something amazing.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
