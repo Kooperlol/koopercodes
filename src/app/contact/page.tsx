@@ -13,6 +13,7 @@ import Image from "next/image";
 import React from "react";
 const videos = [
   <Image
+    key={"contact_1"}
     className="z-10 absolute bottom-0 right-0 w-1/3 object-cover lg:block hidden"
     draggable={false}
     priority
@@ -23,6 +24,7 @@ const videos = [
     alt="Contact Video"
   />,
   <Image
+    key={"contact_2"}
     className="z-10 absolute bottom-0 right-0 w-1/4 object-cover lg:block hidden"
     draggable={false}
     priority
@@ -73,8 +75,8 @@ const ContactPage = () => {
             </Heading>
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
               I'm always looking for new opportunities to collaborate with
-              others. Whether you're looking for a new website, a new feature, or
-              just want to chat, I'm always open to new ideas.
+              others. Whether you're looking for a new website, a new feature,
+              or just want to chat, I'm always open to new ideas.
             </Text>
           </Stack>
           <Box as={"form"}>
