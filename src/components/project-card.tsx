@@ -14,6 +14,7 @@ export interface IProjectCardProps {
   description: string;
   image: string;
   url: string;
+  date: string;
 }
 
 export default class ProjectCard extends React.Component<IProjectCardProps> {
