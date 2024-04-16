@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ChakraProvider } from "@chakra-ui/react";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,7 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} text-white`}>{children}</body>
+      <body className={`${poppins.className} text-white`}>
+        <ChakraProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ChakraProvider>
+        </body>
     </html>
   );
 }

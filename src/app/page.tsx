@@ -4,15 +4,21 @@ import { useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "framer-motion";
 import KooperParticles from "@/components/particles";
+import portfolioJSON from "@/../public/config/portfolio.json";
+import ProjectCard from "@/components/project-card";
+import Link from "next/link";
+import { Button } from "@chakra-ui/button";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const headerRef = useRef(null);
   const HeaderInView = useInView(headerRef, {
     once: true,
   });
+  const router = useRouter();
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <Image
         className="top-0 left-0 absolute object-cover w-screen h-screen"
         priority
@@ -22,20 +28,20 @@ export default function Home() {
         height={1080}
         alt={"Banner Image"}
       />
-      <div
-        className="absolute bottom-0 mb-5 mouse-icon"
-        style={{
-          transform: HeaderInView ? "none" : "translateY(25px)",
-          opacity: HeaderInView ? 1 : 0,
-          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-        }}
-      >
-        <div className="scroll" />
-      </div>
       <KooperParticles />
       <div className="container flex flex-col">
         {/* Header */}
         <div className="h-screen relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center 2xl:justify-between justify-center items-center">
+          <div
+            className="mb-5 mouse-icon"
+            style={{
+              transform: HeaderInView ? "none" : "translateY(25px)",
+              opacity: HeaderInView ? 1 : 0,
+              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+          >
+            <div className="scroll" />
+          </div>
           <div
             style={{
               transform: HeaderInView ? "none" : "translateX(-200px)",
@@ -92,7 +98,7 @@ export default function Home() {
           />
         </div>
         {/* About */}
-        <div className="flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center items-center justify-center py-8 gap-10 2xl:px-0 px-6">
+        <div id="about" className="flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center items-center justify-center py-8 gap-10 2xl:px-0 px-6">
           <Image
             className="rounded-full lg:w-1/3 w-1/2"
             src="/images/about.png"
@@ -106,13 +112,16 @@ export default function Home() {
             <div className="flex flex-col gap-3">
               <p className="text-black text-2xl">
                 Hello! I'm Kooper, a developer based in{" "}
-                <span className="text-main font-bold">Madison, WI</span> who's
-                experienced in taking fullstack applications from scratch to
-                production.
+                <span className="text-main font-bold">Rock County, WI</span>{" "}
+                who's experienced in taking fullstack applications from scratch
+                to production.
               </p>
               <p className="text-black text-2xl">
                 I'm currently an incoming computer science student at{" "}
-                <span className="text-main font-bold">UW Madison</span>.
+                <span className="text-main font-bold">
+                  Southern New Hampshire University
+                </span>
+                .
               </p>
               <p className="text-black text-2xl">
                 I'm passionate about creating projects and{" "}
@@ -126,6 +135,23 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* Projects */}
+        <div id="projects" className="bg-full p-10 flex flex-col gap-3">
+          <p className="text-center text-black text-4xl font-bold">My Projects</p>
+          <p className="text-center text-black text-3xl">Check out my <Link href="https://github.com/Kooperlol" target="_blank"><span className="text-main">GitHub</span></Link> for more!</p>
+          <div className="flex lg:flex-row flex-col gap-5 p-5 justify-center lg:items-start items-center">
+            {portfolioJSON.projects.map((project, index) => {
+              return <ProjectCard key={index} {...project} />;
+            })}
+          </div>
+        </div>
+        {/* Contact */}
+        <div className="p-10 flex flex-col items-center gap-3">
+          <p className="text-center text-black text-4xl font-bold">Let's get in touch!</p>
+          <Button backgroundColor={"#1463F3"} color={"white"} width={"min-content"} onClick={
+            () => router.push("/contact")
+          }>Contact Me</Button>
+          </div>
       </div>
     </div>
   );

@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "name": "NexaDB",
+      "image": "https://github.com/Kooperlol/nexadb/blob/main/public/media/logo.png?raw=true",
+      "description": "In Future Business Leaders of America, my partner and I competed in Website Coding & Development. We made NexaDB, a website for a database management company to help the company find applicants. The website includes an application form, a page with employee benefits and business information, a careers page, and a dashboard for the management to review applicants.",
+      "url": "https://nexadb.vercel.app/en",
+      "date": "2024"
+    },
+    {
+      "name": "MHS Laude",
+      "image": "https://github.com/Kooperlol/mhslaude/blob/main/client/public/media/favicon.png?raw=true",
+      "description": "MHS Laude is a website for Milton High School for students to calculate their laude points. I decided to make this as calculations were done by hand. Students can upload their transcripts and get results. No more need to pull out a calculator and follow a multiple-page rubric with chance of human error.",
+      "url": "https://www.mhslaude.com/",
+      "date": "2024"
+    },
+    {
+      "name": "Milton Relay",
+      "image": "https://github.com/Kooperlol/milton_relay/blob/master/assets/miltonrelay-logo.png?raw=true",
+      "description": "In Future Business Leaders of America, I competed in Mobile Application Development. Milton Relay is a mobile application for my school to help keep parents and the community up to date. The app includes upcoming events, important information such as the school calendar and activities schedule, a way for teachers and students to share photos, and a way for parents to notify the school of student absences. In addition, I added a Laude Point calculator recommended by the school administration. In the program, there is a admin, student, teacher, and parent interface, each with different features.",
+      "url": "https://github.com/Kooperlol/milton_relay",
+      "date": "2023"
+    },
+    {
+      "name": "Journey",
+      "image": "https://github.com/Kooperlol/Journey/blob/main/src/main/resources/me/kooper/fbla/media/Journey.png?raw=true",
+      "description": "In Future Business Leaders of America, I competed in Coding & Programming. Here is the task: You have been hired by your state or local area’s tourism bureau to develop a program that suggests attractions (can be tourist attractions, restaurants, shopping, things to do, etc.) to potential visitors. Your program will allow users to search for attractions in the area based on desired attributes, such as location, type of attraction, and amenities. Your program must include at least 50 attractions, and users must be able to define at least five desired attributes to search for an attraction.",
+      "url": "https://github.com/Kooperlol/Journey",
+      "date": "2022"
+    }
+  ]
+}

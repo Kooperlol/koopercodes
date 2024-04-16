@@ -1,10 +1,19 @@
 "use client";
 import KooperParticles from "@/components/particles";
+import {
+  Box,
+  Button,
+  Heading,
+  Input,
+  Stack,
+  Text,
+  Textarea,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
 const videos = [
   <Image
-    className="z-10 absolute bottom-0 right-0 w-1/3 object-cover"
+    className="z-10 absolute bottom-0 right-0 w-1/3 object-cover lg:block hidden"
     draggable={false}
     priority
     style={{ maxHeight: "75%" }}
@@ -14,7 +23,7 @@ const videos = [
     alt="Contact Video"
   />,
   <Image
-    className="z-10 absolute bottom-0 right-0 w-1/4 object-cover"
+    className="z-10 absolute bottom-0 right-0 w-1/4 object-cover lg:block hidden"
     draggable={false}
     priority
     style={{ maxHeight: "75%" }}
@@ -40,52 +49,94 @@ const ContactPage = () => {
 
       <KooperParticles />
       <div className="container z-10 items-center justify-center flex h-screen">
-        <form className="bg-white p-5 rounded w-fit">
-          <div className="mb-5">
-            <label
-              htmlFor="name"
-              className="mb-3 block text-base font-medium text-black"
+        <Stack
+          bg={"gray.50"}
+          rounded={"xl"}
+          p={{ base: 4, sm: 6, md: 8 }}
+          spacing={{ base: 8 }}
+          className="w-2/3 max-w-lg"
+        >
+          <Stack spacing={4}>
+            <Heading
+              color={"gray.800"}
+              lineHeight={1.1}
+              fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
             >
-              Full Name
-            </label>
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
-            />
-          </div>
-          <div className="mb-5">
-            <label
-              htmlFor="email"
-              className="mb-3 block text-base font-medium text-black"
+              Contact Kooper
+              <Text
+                as={"span"}
+                bgGradient="linear(to-r, blue.400,blue.600)"
+                bgClip="text"
+              >
+                !
+              </Text>
+            </Heading>
+            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+              I'm always looking for new opportunities to collaborate with
+              others. Whether you're looking for a new website, a new feature, or
+              just want to chat, I'm always open to new ideas.
+            </Text>
+          </Stack>
+          <Box as={"form"}>
+            <Stack spacing={4}>
+              <Input
+                id="firstname"
+                placeholder="First Name"
+                bg={"gray.100"}
+                border={0}
+                color={"gray.500"}
+                _placeholder={{
+                  color: "gray.500",
+                }}
+              />
+              <Input
+                id="lastname"
+                placeholder="Last Name"
+                bg={"gray.100"}
+                border={0}
+                color={"gray.500"}
+                _placeholder={{
+                  color: "gray.500",
+                }}
+              />
+              <Input
+                id="email"
+                placeholder="Email"
+                bg={"gray.100"}
+                border={0}
+                color={"gray.500"}
+                _placeholder={{
+                  color: "gray.500",
+                }}
+              />
+              <Textarea
+                id="message"
+                placeholder="Message"
+                bg={"gray.100"}
+                border={0}
+                color={"gray.500"}
+                _placeholder={{
+                  color: "gray.500",
+                }}
+              />
+            </Stack>
+            <Button
+              fontFamily={"heading"}
+              mt={8}
+              w={"full"}
+              bgGradient="linear(to-r, blue.400,blue.600)"
+              color={"white"}
+              type="submit"
+              _hover={{
+                bgGradient: "linear(to-r, blue.400,blue.600)",
+                boxShadow: "xl",
+              }}
             >
-              Email Address
-            </label>
-            <input
-              type="email"
-              placeholder="example@domain.com"
-              className="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
-            />
-          </div>
-          <div className="mb-5">
-            <label
-              htmlFor="message"
-              className="mb-3 block text-base font-medium text-black"
-            >
-              Message
-            </label>
-            <textarea
-              rows={4}
-              placeholder="Type your message"
-              className="w-full resize-none rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
-            ></textarea>
-          </div>
-          <div>
-            <button className="hover:shadow-form rounded-md bg-purple-500 py-3 px-8 text-base font-semibold text-white outline-none">
               Submit
-            </button>
-          </div>
-        </form>
+            </Button>
+          </Box>
+          form
+        </Stack>
       </div>
     </div>
   );
