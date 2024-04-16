@@ -23,7 +23,7 @@ export default class ProjectCard extends React.Component<IProjectCardProps> {
       <Link href={this.props.url} target="_blank">
         <Card maxW="sm" className="hover:shadow-lg">
           <CardBody>
-            <Image
+            <img
               src={this.props.image}
               alt="Portfolio Image"
               style={{ borderRadius: "lg" }}
