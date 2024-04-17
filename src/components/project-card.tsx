@@ -20,7 +20,7 @@ export default class ProjectCard extends React.Component<IProjectCardProps> {
   public render() {
     return (
       <Link href={this.props.url} target="_blank">
-        <Card maxW="sm" className="hover:shadow-lg">
+        <Card maxW="sm" className="hover:shadow-lg h-full">
           <CardBody className="h-1/3">
             <img
               src={this.props.image}
@@ -28,9 +28,9 @@ export default class ProjectCard extends React.Component<IProjectCardProps> {
               style={{ borderRadius: "lg" }}
               className="w-full h-64 object-cover"
             />
-            <Stack mt="6" spacing="3">
+            <Stack mt="6" spacing="3" className="h-56">
               <Heading size="md" className="text-main font-bold">{this.props.name} - {this.props.date}</Heading>
-              <Text>{this.props.description}</Text>
+              <Text overflowY={"scroll"}>{this.props.description}</Text>
             </Stack>
           </CardBody>
         </Card>
