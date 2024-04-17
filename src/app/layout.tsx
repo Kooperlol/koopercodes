@@ -30,7 +30,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ChakraProvider>
-        </body>
+      </body>
     </html>
   );
 }

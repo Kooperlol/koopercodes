@@ -29,7 +29,7 @@ export default function Header() {
       <div
         className={`m-auto flex w-screen justify-between items-center px-8 py-3 ${
           scrollPosition > 0
-            ? "fixed drop-shadow-md bg-main"
+            ? "fixed drop-shadow-md bg-main bg-opacity-75"
             : "fixed shadow-none"
         }`}
       >
@@ -48,7 +48,7 @@ export default function Header() {
         </Link>
         <ul className="hidden font-bold text-lg text-white sm:flex">
           <li className="p-4 hover:text-secondary">
-            <Link href="/">Home</Link>
+            <Link href="/#header">Home</Link>
           </li>
           <li className="p-4 hover:text-secondary">
             <Link href="/#about">About</Link>
@@ -79,7 +79,7 @@ export default function Header() {
         >
           <ul>
             <li onClick={handleNav} className="p-4 text-4xl hover:text-black">
-              <Link href="/">Home</Link>
+              <Link href="/#header">Home</Link>
             </li>
             <li onClick={handleNav} className="p-4 text-4xl hover:text-black">
               <Link href="/#about">About</Link>

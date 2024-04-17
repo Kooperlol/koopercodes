@@ -5,7 +5,6 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 
@@ -22,11 +21,12 @@ export default class ProjectCard extends React.Component<IProjectCardProps> {
     return (
       <Link href={this.props.url} target="_blank">
         <Card maxW="sm" className="hover:shadow-lg">
-          <CardBody>
+          <CardBody className="h-1/3">
             <img
               src={this.props.image}
               alt="Portfolio Image"
               style={{ borderRadius: "lg" }}
+              className="w-full h-64 object-cover"
             />
             <Stack mt="6" spacing="3">
               <Heading size="md" className="text-main font-bold">{this.props.name} - {this.props.date}</Heading>
