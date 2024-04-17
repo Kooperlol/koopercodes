@@ -59,7 +59,7 @@ const ContactPage = () => {
 
   return (
     <Curve>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center lg:py-0 py-12">
         <Image
           className="top-0 left-0 absolute object-cover w-screen h-screen"
           priority
