@@ -59,7 +59,7 @@ const ContactPage = () => {
 
   return (
     <Curve>
-      <div className="flex items-center justify-center lg:py-0 py-12">
+      <div className="flex items-center justify-center">
         <Image
           className="top-0 left-0 absolute object-cover w-screen h-screen"
           priority
@@ -71,7 +71,7 @@ const ContactPage = () => {
         {videos[Math.floor(Math.random() * videos.length)]}
 
         <KooperParticles />
-        <div className="container z-10 items-center justify-center flex h-screen">
+        <div className="container z-10 items-center justify-center flex h-screen py-12">
           <Stack
             bg={"gray.50"}
             rounded={"xl"}

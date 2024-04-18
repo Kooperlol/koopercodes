@@ -35,7 +35,7 @@ export default function Home() {
           {/* Header */}
           <div
             id="header"
-            className="h-screen relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center 2xl:justify-between justify-center items-center"
+            className="h-screen relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center 2xl:justify-between justify-center items-center p-16"
           >
             <div
               className="mb-5 mouse-icon"
