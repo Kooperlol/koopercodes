@@ -48,7 +48,6 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(e.currentTarget);
     const formData = new FormData(e.currentTarget);
     console.log(formData.get("firstname") as string);
     const data: FormDataValues = {

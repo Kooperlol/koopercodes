@@ -45,7 +45,7 @@ export function Curve({ children }: { children: React.ReactNode }) {
     "/contact": "Contact",
   };
 
-  if (window.scrollY > 0) return <>{children}</>;
+  if ((dimensions.height ?? 0) > 0) return <>{children}</>;
 
   return (
     <div className="page curve">
