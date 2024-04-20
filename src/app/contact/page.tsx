@@ -48,13 +48,31 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    console.log(e.currentTarget);
     const formData = new FormData(e.currentTarget);
+    console.log(formData.get("firstname") as string);
     const data: FormDataValues = {
       firstname: formData.get("firstname") as string,
       lastname: formData.get("lastname") as string,
       email: formData.get("email") as string,
       message: formData.get("message") as string,
     };
+    const sendEmail = async () => {
+      await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }).then((res) => {
+        if (res.ok) {
+          alert("Email sent!");
+        } else {
+          alert("Error sending email.");
+        }
+      });
+    };
+    sendEmail();
   };
 
   return (

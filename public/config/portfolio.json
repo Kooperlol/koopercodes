@@ -28,5 +28,117 @@
       "url": "https://github.com/Kooperlol/Journey",
       "date": "2022"
     }
+  ],
+  "technologies": [
+    {
+      "name": "NextJS",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+      "description": "Next.js is a React framework that enables functionality such as server-side rendering and generating static websites for React applications. It is a powerful tool for building web applications."
+    },
+    {
+      "name": "React",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      "description": "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications."
+    },
+    {
+      "name": "Flutter",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+      "description": "Flutter is an open-source UI software development kit created by Google. It is used to develop applications for Android, iOS, Linux, Mac, Windows, Google Fuchsia, and the web from a single codebase."
+    },
+    {
+      "name": "MongoDB",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+      "description": "MongoDB is a NoSQL database program that uses JSON-like documents with optional schemas. It is a powerful tool for storing and managing data in web applications."
+    },
+    {
+      "name": "Skript",
+      "image": "https://docs.skriptlang.org/assets/icon.png",
+      "description": "Skript is a plugin for Minecraft servers that allows for the creation of custom commands and events. It is a powerful tool for server owners to create custom experiences for their players."
+    },
+    {
+      "name": "Java",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+      "description": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a powerful tool for building web applications and server-side programs."
+    },
+    {
+      "name": "HTML",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+      "description": "HTML is the standard markup language for creating web pages and web applications. It is a powerful tool for building user interfaces and displaying content on the web."
+    },
+    {
+      "name": "CSS",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+      "description": "CSS is a style sheet language used for describing the presentation of a document written in HTML. It is a powerful tool for styling web pages and creating visually appealing user interfaces."
+    },
+    {
+      "name": "JavaScript",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      "description": "JavaScript is a high-level, interpreted programming language that is used to create interactive effects within web browsers. It is a powerful tool for building dynamic web applications."
+    },
+    {
+      "name": "Python",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      "description": "Python is an interpreted, high-level, general-purpose programming language that is used for web development, data analysis, artificial intelligence, and scientific computing. It is a powerful tool for building web applications and server-side programs."
+    },
+    {
+      "name": "Git",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      "description": "Git is a distributed version control system that is used to track changes in source code during software development. It is a powerful tool for collaborating with other developers and managing codebases."
+    },
+    {
+      "name": "GitHub",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+      "description": "GitHub is a web-based platform that is used to host and review code, manage projects, and build software. It is a powerful tool for collaborating with other developers and managing codebases."
+    },
+    {
+      "name": "Vercel",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+      "description": "Vercel is a cloud platform that is used to deploy web applications and serverless functions. It is a powerful tool for hosting and scaling web applications."
+    },
+    {
+      "name": "Kotlin",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+      "description": "Kotlin is a cross-platform, statically typed programming language that is used to develop Android applications. It is a powerful tool for building mobile applications."
+    },
+    {
+      "name": "Dart",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+      "description": "Dart is a programming language that is used to develop mobile, desktop, server, and web applications. It is a powerful tool for building cross-platform applications."
+    },
+    {
+      "name": "Node.js",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      "description": "Node.js is an open-source, cross-platform JavaScript runtime environment that is used to execute JavaScript code outside of a web browser. It is a powerful tool for building server-side applications."
+    },
+    {
+      "name": "Trello",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg",
+      "description": "Trello is a web-based project management application that is used to organize and manage tasks and projects. It is a powerful tool for collaborating with other developers and managing projects."
+    },
+    {
+      "name": "IntelliJ IDEA",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg",
+      "description": "IntelliJ IDEA is an integrated development environment that is used to develop software applications in Java, Kotlin, and other programming languages. It is a powerful tool for writing, compiling, and debugging code."
+    },
+    {
+      "name": "Visual Studio Code",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+      "description": "Visual Studio Code is a source code editor that is used to write, compile, and debug code in various programming languages. It is a powerful tool for developing software applications."
+    },
+    {
+      "name": "Redis",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+      "description": "Redis is an open-source, in-memory data structure store that is used as a database, cache, and message broker. It is a powerful tool for storing and managing data in web applications."
+    },
+    {
+      "name": "Firebase",
+      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+      "description": "Firebase is a mobile and web application development platform that is used to build, improve, and grow applications. It is a powerful tool for developing and deploying applications."
+    },
+    {
+      "name": "JavaFX",
+      "image": "https://www.qfs.de/fileadmin/Webdata/logos-icons/JavaFX.png",
+      "description": "JavaFX is a software platform for creating and delivering desktop applications. It is a powerful tool for building user interfaces and developing desktop applications."
+    }
   ]
 }

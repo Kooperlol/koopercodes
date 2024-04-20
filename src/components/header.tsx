@@ -54,6 +54,9 @@ export default function Header() {
             <Link href="/#about">About</Link>
           </li>
           <li className="p-4 hover:text-secondary">
+            <Link href="/#technologies">Technologies</Link>
+          </li>
+          <li className="p-4 hover:text-secondary">
             <Link href="/#projects">Projects</Link>
           </li>
           <li className="p-4 hover:text-secondary">
@@ -63,11 +66,7 @@ export default function Header() {
 
         {/* Mobile Button */}
         <div onClick={handleNav} className="block sm:hidden z-50">
-          {nav ? (
-            <CloseIcon boxSize={17} />
-          ) : (
-            <HamburgerIcon boxSize={17} />
-          )}
+          {nav ? <CloseIcon boxSize={17} /> : <HamburgerIcon boxSize={17} />}
         </div>
         {/* Mobile Menu */}
         <div
@@ -83,6 +82,9 @@ export default function Header() {
             </li>
             <li onClick={handleNav} className="p-4 text-4xl hover:text-black">
               <Link href="/#about">About</Link>
+            </li>
+            <li onClick={handleNav} className="p-4 text-4xl hover:text-black">
+              <Link href="/#technologies">Technologies</Link>
             </li>
             <li onClick={handleNav} className="p-4 text-4xl hover:text-black">
               <Link href="/#projects">Projects</Link>

@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
-import { useInView } from "framer-motion";
 import KooperParticles from "@/components/particles";
 import portfolioJSON from "@/../public/config/portfolio.json";
 import ProjectCard from "@/components/project-card";
@@ -10,13 +9,39 @@ import Link from "next/link";
 import { Button } from "@chakra-ui/button";
 import { useRouter } from "next/navigation";
 import { Curve } from "@/components/transition";
+import { Tooltip } from "@chakra-ui/react";
 
 export default function Home() {
-  const headerRef = useRef(null);
-  const HeaderInView = useInView(headerRef, {
-    once: true,
-  });
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [isHeaderInView, setIsHeaderInView] = useState(false);
   const router = useRouter();
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const isElementInView =
+      headerRef.current?.getBoundingClientRect().top!! >= 0 &&
+      headerRef.current?.getBoundingClientRect().bottom!! <= window.innerHeight;
+    if (isElementInView) {
+      setTimeout(() => {
+        setIsHeaderInView(true);
+      }, 500);
+    }
+
+    const handleScroll = () => {
+      const isElementInView =
+        headerRef.current?.getBoundingClientRect().top!! >= 0 &&
+        headerRef.current?.getBoundingClientRect().bottom!! <=
+          window.innerHeight;
+      if (isElementInView && !hasAnimated) {
+        setIsHeaderInView(true);
+        setHasAnimated(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [headerRef, hasAnimated]);
 
   return (
     <Curve>
@@ -40,8 +65,8 @@ export default function Home() {
             <div
               className="mb-5 mouse-icon"
               style={{
-                transform: HeaderInView ? "none" : "translateY(25px)",
-                opacity: HeaderInView ? 1 : 0,
+                transform: isHeaderInView ? "none" : "translateY(25px)",
+                opacity: isHeaderInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
             >
@@ -49,8 +74,8 @@ export default function Home() {
             </div>
             <div
               style={{
-                transform: HeaderInView ? "none" : "translateX(-200px)",
-                opacity: HeaderInView ? 1 : 0,
+                transform: isHeaderInView ? "none" : "translateX(-200px)",
+                opacity: isHeaderInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               }}
               ref={headerRef}
@@ -90,8 +115,8 @@ export default function Home() {
             <Image
               className="w-1/3"
               style={{
-                transform: HeaderInView ? "none" : "translateX(200px)",
-                opacity: HeaderInView ? 1 : 0,
+                transform: isHeaderInView ? "none" : "translateX(200px)",
+                opacity: isHeaderInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                 filter: "drop-shadow(0px 2px 5px #222)",
               }}
@@ -120,15 +145,19 @@ export default function Home() {
               <div className="flex flex-col gap-3">
                 <p className="text-black text-2xl">
                   Hello! I'm Kooper, a developer based in{" "}
-                  <span className="text-main font-bold">Rock County, WI</span>{" "}
+                  <Tooltip label="Home to Janesville and Beloit, with a mix of urban areas, natural beauty like the Rock River, and over 250 miles of trails for outdoor enthusiasts.">
+                    <span className="text-main font-bold">Rock County, WI</span>
+                  </Tooltip>{" "}
                   who's experienced in taking fullstack applications from
                   scratch to production.
                 </p>
                 <p className="text-black text-2xl">
                   I'm currently an incoming computer science student at{" "}
-                  <span className="text-main font-bold">
-                    Southern New Hampshire University
-                  </span>
+                  <Tooltip label="A private, accredited university with over 200 online & on-campus programs. Known for affordability and focus on career-oriented degrees.">
+                    <span className="text-main font-bold">
+                      Southern New Hampshire University
+                    </span>
+                  </Tooltip>
                   .
                 </p>
                 <p className="text-black text-2xl">
@@ -143,8 +172,31 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {/* Technologies */}
+          <div id="technologies" className="bg-full p-10 flex flex-col gap-3">
+            <p className="text-center text-black text-4xl font-bold">
+              Technologies
+            </p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 justify-center items-center">
+              {portfolioJSON.technologies.map((skill, index) => {
+                return (
+                  <Tooltip key={index} label={skill.description}>
+                    <div className="flex flex-row gap-3 bg-white p-3 rounded-lg shadow-md hover:drop-shadow-2xl">
+                      <Image
+                        src={skill.image}
+                        alt={skill.name}
+                        width={30}
+                        height={30}
+                      />
+                      <p className="text-black text-2xl">{skill.name}</p>
+                    </div>
+                  </Tooltip>
+                );
+              })}
+            </div>
+          </div>
           {/* Projects */}
-          <div id="projects" className="bg-full p-10 flex flex-col gap-3">
+          <div id="projects" className="p-10 flex flex-col gap-3">
             <p className="text-center text-black text-4xl font-bold">
               My Projects
             </p>
@@ -162,7 +214,7 @@ export default function Home() {
             </div>
           </div>
           {/* Contact */}
-          <div className="p-10 flex flex-col items-center gap-3">
+          <div className="bg-full p-10 flex flex-col items-center gap-3">
             <p className="text-center text-black text-4xl font-bold">
               Let's get in touch!
             </p>
