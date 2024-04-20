@@ -177,7 +177,7 @@ export default function Home() {
             <p className="text-center text-black text-4xl font-bold">
               Technologies
             </p>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 justify-center items-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-8 gap-5 justify-center items-center">
               {portfolioJSON.technologies.map((skill, index) => {
                 return (
                   <Tooltip key={index} label={skill.description}>
@@ -185,10 +185,10 @@ export default function Home() {
                       <Image
                         src={skill.image}
                         alt={skill.name}
-                        width={30}
-                        height={30}
+                        width={20}
+                        height={20}
                       />
-                      <p className="text-black text-2xl">{skill.name}</p>
+                      <p className="text-black text-xl">{skill.name}</p>
                     </div>
                   </Tooltip>
                 );

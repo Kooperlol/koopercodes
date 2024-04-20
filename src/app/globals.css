@@ -124,3 +124,5 @@ html {
       text-align: center;
   }
 }
+
+.grecaptcha-badge { visibility: hidden; }

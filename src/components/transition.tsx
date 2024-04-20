@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 interface Variants {
   [key: string]: any;
@@ -18,6 +18,7 @@ const anim = (variants: Variants) => {
 
 export function Curve({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const [scrollTop, setScrollTop] = useState(0);
   const [dimensions, setDimensions] = useState<{
     width: number | null;
     height: number | null;
@@ -34,6 +35,7 @@ export function Curve({ children }: { children: React.ReactNode }) {
       });
     }
     resize();
+    setScrollTop(document.documentElement.scrollTop);
     window.addEventListener("resize", resize);
     return () => {
       window.removeEventListener("resize", resize);
@@ -45,7 +47,7 @@ export function Curve({ children }: { children: React.ReactNode }) {
     "/contact": "Contact",
   };
 
-  if ((dimensions.height ?? 0) > 0) return <>{children}</>;
+  if (scrollTop > 0) return <>{children}</>;
 
   return (
     <div className="page curve">

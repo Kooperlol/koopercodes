@@ -11,7 +11,10 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import React from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import React, { useRef, useState } from "react";
+import { useToast } from "@chakra-ui/react";
+import axios from "axios";
 const videos = [
   <Image
     key={"contact_1"}
@@ -42,36 +45,91 @@ interface FormDataValues {
   lastname: string;
   email: string;
   message: string;
+  gRecaptchaToken: string;
 }
 
 const ContactPage = () => {
+  const toast = useToast();
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isEmailing, setEmailing] = useState(false);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    console.log(formData.get("firstname") as string);
-    const data: FormDataValues = {
-      firstname: formData.get("firstname") as string,
-      lastname: formData.get("lastname") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
-    };
-    const sendEmail = async () => {
-      await fetch("/api/email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }).then((res) => {
-        if (res.ok) {
-          alert("Email sent!");
-        } else {
-          alert("Error sending email.");
-        }
+    if (isEmailing) {
+      return;
+    }
+
+    setEmailing(true);
+
+    const formData = new FormData((e.currentTarget as HTMLFormElement));
+    formData.append("firstname", e.currentTarget.firstname.value.trim());
+    formData.append("lastname", e.currentTarget.lastname.value.trim());
+    formData.append("email", e.currentTarget.email.value.trim());
+    formData.append("message", e.currentTarget.message.value.trim());
+
+    if (
+      !formData.get("firstname") ||
+      !formData.get("lastname") ||
+      !formData.get("email") ||
+      !formData.get("message")
+    ) {
+      toast({
+        title: "Missing fields",
+        description: "Please fill out all fields before submitting.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
       });
-    };
-    sendEmail();
+      setEmailing(false);
+      return;
+    }
+
+    if (!executeRecaptcha) {
+      console.log("Execute recaptcha not available yet");
+      alert(
+        "Execute recaptcha not available yet likely meaning key not recaptcha key not set"
+      );
+      return;
+    }
+
+    executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
+      const data: FormDataValues = {
+        firstname: formData.get("firstname") as string,
+        lastname: formData.get("lastname") as string,
+        email: formData.get("email") as string,
+        message: formData.get("message") as string,
+        gRecaptchaToken: gReCaptchaToken,
+      };
+      const sendEmail = async () => {
+        const response = await axios.post("/api/email", data, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        formRef.current?.reset();
+        if (response?.data?.success === false) {
+          toast({
+            title: "Failed to send email",
+            description:
+              "We were unable to send your email. Please try again later.",
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+          });
+        } else {
+          toast({
+            title: "Email sent",
+            description: "Your email has been sent successfully.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
+        }
+        setEmailing(false);
+      };
+      sendEmail();
+    });
   };
 
   return (
@@ -117,7 +175,7 @@ const ContactPage = () => {
                 or just want to chat, I'm always open to new ideas.
               </Text>
             </Stack>
-            <Box as={"form"} onSubmit={handleSubmit}>
+            <Box as={"form"} ref={formRef} id="contact" onSubmit={handleSubmit}>
               <Stack spacing={4}>
                 <Input
                   id="firstname"
@@ -144,6 +202,7 @@ const ContactPage = () => {
                   placeholder="Email"
                   bg={"gray.100"}
                   border={0}
+                  type="email"
                   color={"gray.500"}
                   _placeholder={{
                     color: "gray.500",

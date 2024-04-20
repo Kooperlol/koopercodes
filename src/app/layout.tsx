@@ -4,6 +4,7 @@ import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import GoogleCaptchaProvider from "./providers/captcha-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,7 +28,9 @@ export default function RootLayout({
       <body className={`${poppins.className} text-white`}>
         <ChakraProvider>
           <Header />
-          {children}
+          <GoogleCaptchaProvider>
+            {children}
+          </GoogleCaptchaProvider>
           <Footer />
         </ChakraProvider>
       </body>
