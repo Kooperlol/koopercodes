@@ -27,7 +27,7 @@ export default function Home() {
       setTimeout(() => {
         setIsHeaderInView(true);
         setHasAnimated(true);
-      }, 250);
+      }, 150);
     }
 
     const handleScroll = () => {
