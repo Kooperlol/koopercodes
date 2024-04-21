@@ -41,8 +41,8 @@ export default function Header() {
               draggable={false}
               src="/images/logo.webp"
               alt="logo"
-              width={50}
-              height={50}
+              width={500}
+              height={500}
             />
           </div>
         </Link>

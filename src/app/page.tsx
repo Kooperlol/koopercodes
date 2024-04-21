@@ -192,8 +192,8 @@ export default function Home() {
                         alt={skill.name}
                         loading="lazy"
                         draggable={false}
-                        width={20}
-                        height={20}
+                        width={24}
+                        height={24}
                       />
                       <p className="text-black text-xl">{skill.name}</p>
                     </div>
