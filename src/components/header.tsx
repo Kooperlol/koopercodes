@@ -39,7 +39,7 @@ export default function Header() {
               priority
               className="p-2"
               draggable={false}
-              src="/images/logo.webm"
+              src="/images/logo.webp"
               alt="logo"
               width={50}
               height={50}

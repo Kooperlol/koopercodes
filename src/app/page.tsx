@@ -26,7 +26,8 @@ export default function Home() {
     if (isElementInView && !hasAnimated) {
       setTimeout(() => {
         setIsHeaderInView(true);
-      }, 500);
+        setHasAnimated(true);
+      }, 500)
     }
 
     const handleScroll = () => {
@@ -115,19 +116,18 @@ export default function Home() {
               />
             </div>
             <Image
-              priority
               className="w-1/3"
               style={{
-                transform: isHeaderInView ? "none" : "translateX(200px)",
                 opacity: isHeaderInView ? 1 : 0,
+                transform: isHeaderInView ? "none" : "translateX(200px)",
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                 filter: "drop-shadow(0px 2px 5px #222)",
               }}
               src={kooperimage}
               alt="Picture of Kooper"
               draggable={false}
-              width={500}
-              height={500}
+              width={540}
+              height={540}
             />
           </div>
           {/* About */}
