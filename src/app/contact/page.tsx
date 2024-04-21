@@ -12,33 +12,11 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import contact1video from "@/../public/videos/contact_1.gif";
+import contact2video from "@/../public/videos/contact_2.gif";
 import React, { useRef, useState } from "react";
 import { useToast } from "@chakra-ui/react";
 import axios from "axios";
-const videos = [
-  <Image
-    key={"contact_1"}
-    className="z-10 absolute bottom-0 right-0 w-1/3 object-cover lg:block hidden"
-    draggable={false}
-    priority
-    style={{ maxHeight: "75%" }}
-    width={1920}
-    height={1080}
-    src="/videos/contact_1.gif"
-    alt="Contact Video"
-  />,
-  <Image
-    key={"contact_2"}
-    className="z-10 absolute bottom-0 right-0 w-1/4 object-cover lg:block hidden"
-    draggable={false}
-    priority
-    style={{ maxHeight: "75%" }}
-    width={1920}
-    height={1080}
-    src="/videos/contact_2.gif"
-    alt="Contact Video"
-  />,
-];
 
 interface FormDataValues {
   firstname: string;
@@ -49,6 +27,31 @@ interface FormDataValues {
 }
 
 const ContactPage = () => {
+  const videos = [
+    <Image
+      key={"contact_1"}
+      className="z-10 absolute bottom-0 right-0 w-1/3 object-cover lg:block hidden"
+      draggable={false}
+      priority
+      style={{ maxHeight: "75%" }}
+      width={1920}
+      height={1080}
+      src={contact1video}
+      alt="Contact Video"
+    />,
+    <Image
+      key={"contact_2"}
+      className="z-10 absolute bottom-0 right-0 w-1/4 object-cover lg:block hidden"
+      draggable={false}
+      priority
+      style={{ maxHeight: "75%" }}
+      width={1920}
+      height={1080}
+      src={contact2video}
+      alt="Contact Video"
+    />,
+  ];
+
   const toast = useToast();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const formRef = useRef<HTMLFormElement>(null);
@@ -62,7 +65,7 @@ const ContactPage = () => {
 
     setEmailing(true);
 
-    const formData = new FormData((e.currentTarget as HTMLFormElement));
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
     formData.append("firstname", e.currentTarget.firstname.value.trim());
     formData.append("lastname", e.currentTarget.lastname.value.trim());
     formData.append("email", e.currentTarget.email.value.trim());

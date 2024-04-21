@@ -9,6 +9,8 @@ import Link from "next/link";
 import { Button } from "@chakra-ui/button";
 import { useRouter } from "next/navigation";
 import { Curve } from "@/components/transition";
+import kooperimage from "@/../public/images/kooper.png";
+import aboutimage from "@/../public/images/about.png";
 import { Tooltip } from "@chakra-ui/react";
 
 export default function Home() {
@@ -113,6 +115,7 @@ export default function Home() {
               />
             </div>
             <Image
+              priority
               className="w-1/3"
               style={{
                 transform: isHeaderInView ? "none" : "translateX(200px)",
@@ -120,8 +123,9 @@ export default function Home() {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
                 filter: "drop-shadow(0px 2px 5px #222)",
               }}
-              src="/images/kooper.png"
+              src={kooperimage}
               alt="Picture of Kooper"
+              placeholder="blur"
               draggable={false}
               width={1080}
               height={1080}
@@ -134,9 +138,10 @@ export default function Home() {
           >
             <Image
               className="rounded-full lg:w-1/3 w-1/2"
-              src="/images/about.png"
+              src={aboutimage}
               alt="Picture of Kooper"
               draggable={false}
+              placeholder="blur"
               width={407}
               height={612}
             />
@@ -185,6 +190,8 @@ export default function Home() {
                       <Image
                         src={skill.image}
                         alt={skill.name}
+                        loading={"lazy"}
+                        draggable={false}
                         width={20}
                         height={20}
                       />
