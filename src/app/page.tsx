@@ -11,22 +11,19 @@ import { useRouter } from "next/navigation";
 import kooperimage from "@/../public/images/kooper.webp";
 import aboutimage from "@/../public/images/about.webp";
 import { Tooltip } from "@chakra-ui/react";
-import LazyLoad from "react-lazyload";
 
 export default function Home() {
   const headerRef = useRef<HTMLDivElement>(null);
   const [isHeaderInView, setIsHeaderInView] = useState(false);
   const router = useRouter();
-  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const isElementInView =
       headerRef.current?.getBoundingClientRect().top!! >= 0 &&
       headerRef.current?.getBoundingClientRect().bottom!! <= window.innerHeight;
-    if (isElementInView && !hasAnimated) {
+    if (isElementInView) {
       setTimeout(() => {
         setIsHeaderInView(true);
-        setHasAnimated(true);
       }, 150);
     }
 
@@ -35,16 +32,15 @@ export default function Home() {
         headerRef.current?.getBoundingClientRect().top!! >= 0 &&
         headerRef.current?.getBoundingClientRect().bottom!! <=
           window.innerHeight;
-      if (isElementInView && !hasAnimated) {
+      if (isElementInView) {
         setIsHeaderInView(true);
-        setHasAnimated(true);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [headerRef, hasAnimated]);
+  }, [headerRef]);
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -67,18 +63,22 @@ export default function Home() {
           <div
             className="mb-5 mouse-icon"
             style={{
-              transform: isHeaderInView ? "none" : "translateY(25px)",
               opacity: isHeaderInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              transform: isHeaderInView ? "none" : "translateY(25px)",
+              transitionProperty: "transform, opacity",
+              transitionDuration: "0.9s",
+              transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
           >
             <div className="scroll" />
           </div>
           <div
             style={{
-              transform: isHeaderInView ? "none" : "translateX(-200px)",
               opacity: isHeaderInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              transform: isHeaderInView ? "none" : "translateX(-200px)",
+              transitionProperty: "transform, opacity",
+              transitionDuration: "0.9s",
+              transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
             ref={headerRef}
             className="flex flex-col 2xl:gap-5 gap-0"
@@ -114,35 +114,23 @@ export default function Home() {
               repeat={Infinity}
             />
           </div>
-          <LazyLoad
-            placeholder={
-              <div
-                style={{
-                  width: 400,
-                  height: 400,
-                  opacity: 0,
-                  filter: "blur(5px)",
-                }}
-              />
-            }
-          >
-            <Image
-              priority
-              style={{
-                opacity: isHeaderInView ? 1 : 0,
-                transform: isHeaderInView ? "none" : "translateX(200px)",
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-                filter: "drop-shadow(0px 2px 5px #222)",
-                width: 400,
-                height: 400,
-              }}
-              src={kooperimage}
-              alt="Picture of Kooper"
-              draggable={false}
-              width={400}
-              height={400}
-            />
-          </LazyLoad>
+          <Image
+            priority
+            className="lg:w-1/3 w-1/2"
+            style={{
+              opacity: isHeaderInView ? 1 : 0,
+              transform: isHeaderInView ? "none" : "translateX(200px)",
+              transitionProperty: "transform, opacity",
+              transitionDuration: "0.9s",
+              transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
+              filter: "drop-shadow(0px 2px 5px #222)",
+            }}
+            src={kooperimage}
+            alt="Picture of Kooper"
+            draggable={false}
+            width={400}
+            height={400}
+          />
         </div>
         {/* About */}
         <div
