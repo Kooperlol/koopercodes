@@ -126,8 +126,8 @@ export default function Home() {
               src={kooperimage}
               alt="Picture of Kooper"
               draggable={false}
-              width={50}
-              height={50}
+              width={500}
+              height={500}
             />
           </div>
           {/* About */}

@@ -13,7 +13,7 @@ export default function GoogleCaptchaProvider({
     <GoogleReCaptchaProvider
       reCaptchaKey={recaptchaKey ?? "NOT DEFINED"}
       scriptProps={{
-        async: false,
+        async: true,
         defer: false,
         appendTo: "head",
         nonce: undefined,
