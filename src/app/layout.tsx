@@ -15,7 +15,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Kooper Codes",
-  description: "Kooper Codes is a Rock County, WI web design and development company specializing in crafting exceptional mobile apps, web applications, and software solutions to propel your business forward.",
+  description:
+    "Kooper Codes is a Rock County, WI web design and development company specializing in crafting exceptional mobile apps, web applications, and software solutions to propel your business forward.",
 };
 
 export default function RootLayout({
@@ -28,9 +29,7 @@ export default function RootLayout({
       <body className={`${poppins.className} text-white`}>
         <ChakraProvider>
           <Header />
-          <GoogleCaptchaProvider>
-            {children}
-          </GoogleCaptchaProvider>
+          <GoogleCaptchaProvider>{children}</GoogleCaptchaProvider>
           <Footer />
         </ChakraProvider>
       </body>
