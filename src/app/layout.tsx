@@ -15,7 +15,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Kooper Codes",
-  description: "",
+  description: "Kooper Codes is a Rock County, WI web design and development company specializing in crafting exceptional mobile apps, web applications, and software solutions to propel your business forward.",
 };
 
 export default function RootLayout({

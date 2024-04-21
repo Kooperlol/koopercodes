@@ -9,8 +9,8 @@ import Link from "next/link";
 import { Button } from "@chakra-ui/button";
 import { useRouter } from "next/navigation";
 import { Curve } from "@/components/transition";
-import kooperimage from "@/../public/images/kooper.png";
-import aboutimage from "@/../public/images/about.png";
+import kooperimage from "@/../public/images/kooper.webp";
+import aboutimage from "@/../public/images/about.webp";
 import { Tooltip } from "@chakra-ui/react";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
     const isElementInView =
       headerRef.current?.getBoundingClientRect().top!! >= 0 &&
       headerRef.current?.getBoundingClientRect().bottom!! <= window.innerHeight;
-    if (isElementInView) {
+    if (isElementInView && !hasAnimated) {
       setTimeout(() => {
         setIsHeaderInView(true);
       }, 500);
@@ -125,10 +125,9 @@ export default function Home() {
               }}
               src={kooperimage}
               alt="Picture of Kooper"
-              placeholder="blur"
               draggable={false}
-              width={1080}
-              height={1080}
+              width={50}
+              height={50}
             />
           </div>
           {/* About */}
@@ -140,6 +139,7 @@ export default function Home() {
               className="rounded-full lg:w-1/3 w-1/2"
               src={aboutimage}
               alt="Picture of Kooper"
+              loading="lazy"
               draggable={false}
               placeholder="blur"
               width={407}
@@ -190,7 +190,7 @@ export default function Home() {
                       <Image
                         src={skill.image}
                         alt={skill.name}
-                        loading={"lazy"}
+                        loading="lazy"
                         draggable={false}
                         width={20}
                         height={20}
