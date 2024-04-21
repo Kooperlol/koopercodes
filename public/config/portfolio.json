@@ -116,7 +116,7 @@
       "description": "Trello is a web-based project management application that is used to organize and manage tasks and projects. It is a powerful tool for collaborating with other developers and managing projects."
     },
     {
-      "name": "IntelliJ IDEA",
+      "name": "IntelliJ",
       "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg",
       "description": "IntelliJ IDEA is an integrated development environment that is used to develop software applications in Java, Kotlin, and other programming languages. It is a powerful tool for writing, compiling, and debugging code."
     },
