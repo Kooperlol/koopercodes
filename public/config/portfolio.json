@@ -121,7 +121,7 @@
       "description": "IntelliJ IDEA is an integrated development environment that is used to develop software applications in Java, Kotlin, and other programming languages. It is a powerful tool for writing, compiling, and debugging code."
     },
     {
-      "name": "Visual Studio Code",
+      "name": "VSC",
       "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
       "description": "Visual Studio Code is a source code editor that is used to write, compile, and debug code in various programming languages. It is a powerful tool for developing software applications."
     },
