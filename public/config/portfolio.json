@@ -1,6 +1,13 @@
 {
   "projects": [
     {
+      "name": "Quarry",
+      "image": "https://cdn.craftingstore.net/rPPmDHlLQ1/65c7c4b5516a94c21aef9e85fc2f7c4e/6mlff5jaqj5zkuar2wqh.png",
+      "description": "Quarry is a Minecraft server that I own and operate. It is an OP Prison server with a focus on community and player experience. The server features custom plugins, events, and a friendly staff team. I have been developing and managing the server since 2020, and it has grown to have a dedicated player base and active community.",
+      "url": "https://store.quarrymc.net/",
+      "date": "2024"
+    },
+    {
       "name": "NexaDB",
       "image": "https://github.com/Kooperlol/nexadb/blob/main/public/media/logo.png?raw=true",
       "description": "In Future Business Leaders of America, my partner and I competed in Website Coding & Development. We made NexaDB, a website for a database management company to help the company find applicants. The website includes an application form, a page with employee benefits and business information, a careers page, and a dashboard for the management to review applicants.",
