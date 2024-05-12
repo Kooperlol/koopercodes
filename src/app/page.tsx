@@ -10,13 +10,13 @@ import { Button } from "@chakra-ui/button";
 import { useRouter } from "next/navigation";
 import kooperimage from "@/../public/images/kooper.webp";
 import aboutimage from "@/../public/images/about.webp";
-import hamsterIcon from "@/../public/images/hamster.png";
 import { Tooltip } from "@chakra-ui/react";
+import hamsterIcon from "@/../public/images/hamster.png";
 
 export default function Home() {
   const headerRef = useRef<HTMLDivElement>(null);
   const [isHeaderInView, setIsHeaderInView] = useState(false);
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState<number>(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -68,16 +68,11 @@ export default function Home() {
         }}
       >
         <div
-          className="hamster-button flex flex-row gap-3 items-center bg-white p-4 shadow-md rounded-l-full hover:shadow-lg"
+          className="flex flex-row gap-3 items-center bg-white p-4 shadow-md rounded-l-full hover:shadow-lg cursor-pointer hover:scale-110 transform transition-transform"
           onClick={() => router.push("/hamster")}
           style={{
-            opacity: isHeaderInView ? 1 : 0,
-            transform: isHeaderInView ? "none" : "translateX(25px)",
             width: width < 640 ? "60px" : "100px",
             height: width < 640 ? "60px" : "100px",
-            transitionProperty: "transform, opacity",
-            transitionDuration: "0.9s",
-            transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
           }}
         >
           <Image
@@ -87,12 +82,8 @@ export default function Home() {
             content="fill"
             alt={"Hamster"}
           />
-          <span className="hamster-button-text text-black px-2 py-1">
-            Check out my hamster!
-          </span>
         </div>
       </div>
-
       <div className="container flex flex-col">
         {/* Header */}
         <div

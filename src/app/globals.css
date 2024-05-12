@@ -121,31 +121,10 @@ html {
     color: white;
     font-size: 46px;
     z-index: 100;
-    transform: translateX(-50%);
     text-align: center;
   }
 }
 
 .grecaptcha-badge {
   visibility: hidden;
-}
-
-.hamster-button {
-  cursor: pointer;
-  transition: transform 0.5s ease-in-out;
-}
-
-.hamster-button:hover {
-  transform: translateX(-150px);
-  scale: 1.1;
-}
-
-.hamster-button-text {
-  display: none;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.hamster-button:hover .hamster-button-text {
-  display: block;
-  opacity: 1;
 }
