@@ -191,7 +191,7 @@ const HamsterPage = () => {
                   />
                 </LineChart>
               ) : (
-                <LineChart width={350} height={250} data={chartData}>
+                <LineChart width={300} height={250} data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
                   <YAxis />
