@@ -88,41 +88,64 @@ html {
 }
 
 .bg-full:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX( -50%);
+  transform: translateX(-50%);
   height: 100%;
   width: 100vw;
-  background: #CCD0D8;
+  background: #ccd0d8;
   z-index: -1;
 }
 
-.curve{
-  .svg, .background{
-      position: fixed;
-      height: calc(100vh + 600px);
-      width: 100vw;
-      pointer-events: none;
-      left: 0;
-      top: 0;
-      z-index: 90;
+.curve {
+  .svg,
+  .background {
+    position: fixed;
+    height: calc(100vh + 600px);
+    width: 100vw;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    z-index: 90;
   }
-  .background{
-      color: "black";
-      transition: opacity 0s linear 0.1s;
+  .background {
+    color: "black";
+    transition: opacity 0s linear 0.1s;
   }
-  .route{
-      position: absolute;
-      left: 50%;
-      top: 400px;
-      color: white;
-      font-size: 46px;
-      z-index: 100;
-      transform: translateX(-50%);
-      text-align: center;
+  .route {
+    position: absolute;
+    left: 50%;
+    top: 400px;
+    color: white;
+    font-size: 46px;
+    z-index: 100;
+    transform: translateX(-50%);
+    text-align: center;
   }
 }
 
-.grecaptcha-badge { visibility: hidden; }
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.hamster-button {
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hamster-button:hover {
+  transform: translateX(-150px);
+  scale: 1.1;
+}
+
+.hamster-button-text {
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hamster-button:hover .hamster-button-text {
+  display: block;
+  opacity: 1;
+}

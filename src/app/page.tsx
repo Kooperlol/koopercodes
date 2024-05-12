@@ -10,6 +10,7 @@ import { Button } from "@chakra-ui/button";
 import { useRouter } from "next/navigation";
 import kooperimage from "@/../public/images/kooper.webp";
 import aboutimage from "@/../public/images/about.webp";
+import hamsterIcon from "@/../public/images/hamster.png";
 import { Tooltip } from "@chakra-ui/react";
 
 export default function Home() {
@@ -54,6 +55,39 @@ export default function Home() {
         alt={"Banner Image"}
       />
       <KooperParticles />
+      <div
+        style={{
+          position: "fixed",
+          bottom: "10%",
+          right: "0",
+          zIndex: 1000,
+        }}
+      >
+        <div
+          className="hamster-button flex flex-row gap-3 items-center bg-white p-4 shadow-md rounded-l-full hover:shadow-lg"
+          onClick={() => router.push("/hamster")}
+          style={{
+            opacity: isHeaderInView ? 1 : 0,
+            transform: isHeaderInView ? "none" : "translateX(25px)",
+            transitionProperty: "transform, opacity",
+            transitionDuration: "0.9s",
+            transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
+        >
+          <Image
+            priority
+            draggable={false}
+            src={hamsterIcon}
+            width={75}
+            height={75}
+            alt={"Hamster"}
+          />
+          <span className="hamster-button-text text-black px-2 py-1">
+            Check out my hamster!
+          </span>
+        </div>
+      </div>
+
       <div className="container flex flex-col">
         {/* Header */}
         <div
