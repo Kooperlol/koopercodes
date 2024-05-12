@@ -16,6 +16,7 @@ import { Tooltip } from "@chakra-ui/react";
 export default function Home() {
   const headerRef = useRef<HTMLDivElement>(null);
   const [isHeaderInView, setIsHeaderInView] = useState(false);
+  const [width, setWidth] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -37,6 +38,9 @@ export default function Home() {
         setIsHeaderInView(true);
       }
     };
+
+    setWidth(window.innerWidth);
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
 
     window.addEventListener("scroll", handleScroll);
 
@@ -69,6 +73,8 @@ export default function Home() {
           style={{
             opacity: isHeaderInView ? 1 : 0,
             transform: isHeaderInView ? "none" : "translateX(25px)",
+            width: width < 640 ? "60px" : "100px",
+            height: width < 640 ? "60px" : "100px",
             transitionProperty: "transform, opacity",
             transitionDuration: "0.9s",
             transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
@@ -78,8 +84,7 @@ export default function Home() {
             priority
             draggable={false}
             src={hamsterIcon}
-            width={75}
-            height={75}
+            content="fill"
             alt={"Hamster"}
           />
           <span className="hamster-button-text text-black px-2 py-1">
