@@ -10,7 +10,10 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import {
+  useGoogleReCaptcha,
+  withGoogleReCaptcha,
+} from "react-google-recaptcha-v3";
 import contact1video from "@/../public/videos/contact_1.gif";
 import contact2video from "@/../public/videos/contact_2.gif";
 import React, { useRef, useState } from "react";
@@ -242,4 +245,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default withGoogleReCaptcha(ContactPage);
