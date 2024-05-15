@@ -10,15 +10,7 @@ export default function GoogleCaptchaProvider({
   const recaptchaKey: string | undefined =
     process?.env?.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
   return (
-    <GoogleReCaptchaProvider
-      reCaptchaKey={recaptchaKey ?? "NOT DEFINED"}
-      scriptProps={{
-        async: true,
-        defer: false,
-        appendTo: "head",
-        nonce: undefined,
-      }}
-    >
+    <GoogleReCaptchaProvider reCaptchaKey={recaptchaKey ?? "NOT DEFINED"}>
       {children}
     </GoogleReCaptchaProvider>
   );

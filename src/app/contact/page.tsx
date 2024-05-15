@@ -95,13 +95,13 @@ const ContactPage = () => {
       return;
     }
 
-    executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
+    executeRecaptcha("inquirySubmit").then((gRecaptchaToken) => {
       const data: FormDataValues = {
         firstname: formData.get("firstname") as string,
         lastname: formData.get("lastname") as string,
         email: formData.get("email") as string,
         message: formData.get("message") as string,
-        gRecaptchaToken: gReCaptchaToken,
+        gRecaptchaToken: gRecaptchaToken,
       };
       const sendEmail = async () => {
         const response = await axios.post("/api/email", data, {

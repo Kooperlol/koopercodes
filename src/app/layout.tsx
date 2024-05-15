@@ -4,7 +4,7 @@ import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import GoogleCaptchaProvider from "./providers/captcha-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,11 +29,7 @@ export default function RootLayout({
       <body className={`${poppins.className} text-white`}>
         <ChakraProvider>
           <Header />
-          <GoogleReCaptchaProvider
-            reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!!}
-          >
-            {children}
-          </GoogleReCaptchaProvider>
+          <GoogleCaptchaProvider>{children}</GoogleCaptchaProvider>
           <Footer />
         </ChakraProvider>
       </body>
