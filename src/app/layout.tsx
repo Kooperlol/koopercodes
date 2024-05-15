@@ -30,7 +30,7 @@ export default function RootLayout({
         <ChakraProvider>
           <Header />
           <GoogleReCaptchaProvider
-            reCaptchaKey={process.env.RECAPTCHA_SECRET_KEY!!}
+            reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!!}
           >
             {children}
           </GoogleReCaptchaProvider>
