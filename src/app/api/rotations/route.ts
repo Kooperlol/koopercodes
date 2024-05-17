@@ -4,7 +4,7 @@ export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db("hamster");
-    const rotations = await db.collection("rotations").findOne({ index: 1 });
+    const rotations = await db.collection("data").findOne({ index: 1 });
     if (!rotations) {
       return Response.json({ error: "No rotations found" }, { status: 404 });
     }
