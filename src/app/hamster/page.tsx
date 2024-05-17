@@ -166,7 +166,7 @@ const HamsterPage = () => {
           </Card>
           <Card className="p-4 items-center justify-center text-center">
             <h1 className="text-2xl">Hamster Wheel Activity</h1>
-            <h2 className="text-sm">Shows the activity of the past hour</h2>
+            <h2 className="text-sm">Shows the activity of the past day</h2>
             <Skeleton isLoaded={!isLoading}>
               {innerX > 768 ? (
                 <LineChart
