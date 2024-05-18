@@ -99,7 +99,7 @@ const HamsterPage = () => {
         setChartData(formattedData);
 
         const rotations = await axios.get("/api/rotations");
-        setTotalRotations(rotations.data.data);
+        setTotalRotations(rotations.data.data as number);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
