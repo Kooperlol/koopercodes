@@ -20,6 +20,7 @@ import {
 } from "recharts";
 import HamsterGif from "/public/images/hamster_wheel.gif";
 import KooperParticles from "@/components/particles";
+export const dynamic = "force-dynamic";
 
 const HamsterPage = () => {
   const [chartData, setChartData] = useState<{ name: string; value: number }[]>(
