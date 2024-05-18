@@ -147,7 +147,9 @@ const HamsterPage = () => {
             <CardBody>
               <div className="flex flex-row gap-1">
                 <p>Total Rotations:</p>
-                <Skeleton isLoaded={!isLoading}>{totalRotations}</Skeleton>
+                <Skeleton isLoaded={!isLoading}>
+                  {totalRotations.toLocaleString()}
+                </Skeleton>
               </div>
               <div className="flex flex-row gap-1">
                 <p>Total Miles:</p>
