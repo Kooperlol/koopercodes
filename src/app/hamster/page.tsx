@@ -185,6 +185,7 @@ const HamsterPage = () => {
                     wrapperStyle={{ lineHeight: "40px" }}
                   />
                   <Line
+                    dot={false}
                     type="monotone"
                     dataKey="value"
                     name="Rotation Speed (RPM)"
@@ -202,6 +203,7 @@ const HamsterPage = () => {
                     wrapperStyle={{ lineHeight: "40px" }}
                   />
                   <Line
+                    dot={false}
                     type="monotone"
                     dataKey="value"
                     name="Rotation Speed (RPM)"
