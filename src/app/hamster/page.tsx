@@ -1,11 +1,5 @@
 "use client";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Skeleton,
-} from "@chakra-ui/react";
+import { Card, CardBody, CardHeader, Skeleton } from "@chakra-ui/react";
 import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -18,13 +12,15 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import HamsterGif from "/public/images/hamster_wheel.gif";
 import KooperParticles from "@/components/particles";
 
 const HamsterPage = () => {
-  const [chartData, setChartData] = useState<{ name: string; value: number }[]>(
-    []
-  );
+  const [rotationData, setRotationData] = useState<
+    { name: string; value: number }[]
+  >([]);
+  const [hamsterMotion, setHamsterMotion] = useState<
+    { name: string; value: number }[]
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
   const [totalRotations, setTotalRotations] = useState<number>(0);
   const [maxRotations, setMaxRotations] = useState<number>(0);
@@ -35,32 +31,73 @@ const HamsterPage = () => {
     timestamp: number;
     value: number;
   }
-  
+
   interface RotationData {
     history: RotationDataEntry[];
   }
-  
-  const formatChartData = (data: RotationData): { name: string; value: number }[] => {
+
+  interface MotionDataEntry {
+    timestamp: number;
+    position: number;
+  }
+
+  interface MotionData {
+    history: MotionDataEntry[];
+  }
+
+  const formatMotionData = (
+    data: MotionData
+  ): { name: string; value: number }[] => {
     if (!data || !data.history) {
-      console.error("Invalid data format for chart. Missing required properties.");
+      console.error(
+        "Invalid data format for chart. Missing required properties."
+      );
       return [];
     }
-  
+
     if (!Array.isArray(data.history) || data.history.length === 0) {
       console.error("Invalid data format for chart. Empty history array.");
       return [];
     }
-  
+
     const filteredAndSortedData = data.history
-      .filter((entry) => entry.value != null && typeof entry.timestamp === "number")
+      .filter(
+        (entry) => entry.position != null && typeof entry.timestamp === "number"
+      )
       .sort((a, b) => a.timestamp - b.timestamp);
-  
+
+    return filteredAndSortedData.map((entry) => ({
+      name: new Date(entry.timestamp * 1000).toLocaleTimeString(),
+      value: entry.position,
+    }));
+  };
+
+  const formatRotationData = (
+    data: RotationData
+  ): { name: string; value: number }[] => {
+    if (!data || !data.history) {
+      console.error(
+        "Invalid data format for chart. Missing required properties."
+      );
+      return [];
+    }
+
+    if (!Array.isArray(data.history) || data.history.length === 0) {
+      console.error("Invalid data format for chart. Empty history array.");
+      return [];
+    }
+
+    const filteredAndSortedData = data.history
+      .filter(
+        (entry) => entry.value != null && typeof entry.timestamp === "number"
+      )
+      .sort((a, b) => a.timestamp - b.timestamp);
+
     return filteredAndSortedData.map((entry) => ({
       name: new Date(entry.timestamp * 1000).toLocaleTimeString(),
       value: entry.value,
     }));
   };
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,8 +107,16 @@ const HamsterPage = () => {
         const apiUrlHistory = "https://hamster-api.vercel.app/api/rotations";
         const responseHistory = await axios.get(apiUrlHistory);
         const dataHistory = responseHistory.data;
-        const formattedData = formatChartData(dataHistory as RotationData);
-        setChartData(formattedData);
+        const formattedData = formatRotationData(dataHistory as RotationData);
+        setRotationData(formattedData);
+
+        const apiUrlMotion = "https://hamster-api.vercel.app/api/motion";
+        const motionResponse = await axios.get(apiUrlMotion);
+        const motionDataHistory = motionResponse.data;
+        const formattedMotionData = formatMotionData(
+          motionDataHistory as MotionData
+        );
+        setHamsterMotion(formattedMotionData);
 
         const apiUrlTotal = "https://hamster-api.vercel.app/api/total";
         const responseTotal = await axios.get(apiUrlTotal);
@@ -125,57 +170,88 @@ const HamsterPage = () => {
         >
           My <b>Hamster</b>
         </h1>
-        <div className="flex flex-col-reverse lg:flex-row gap-3">
-          <Card className="p-4 items-center justify-center">
+        <div className="flex flex-col lg:flex-row gap-3">
+          <Card className="p-4 items-center justify-center text-center">
             <CardHeader>
-              <h1 className="text-2xl text-center">Hamster Wheel Statistics</h1>
+              <h1 className="text-2xl">Hamster Wheel Activity</h1>
+              <h2 className="text-sm">Shows the activity of the past day</h2>
             </CardHeader>
+            <div className="flex flex-row gap-1">
+              <p>Total Rotations:</p>
+              <Skeleton isLoaded={!isLoading}>
+                {totalRotations.toLocaleString()}
+              </Skeleton>
+            </div>
+            <div className="flex flex-row gap-1">
+              <p>Total Miles:</p>
+              <Skeleton isLoaded={!isLoading}>
+                {(totalRotations * 0.00049589646).toFixed(5)}
+              </Skeleton>
+            </div>
+            <div className="flex flex-row gap-1">
+              <p>Average RPM:</p>
+              <Skeleton isLoaded={!isLoading}>
+                {averageRotations.toLocaleString()}
+              </Skeleton>
+            </div>
+            <div className="flex flex-row gap-1">
+              <p>Record RPM:</p>
+              <Skeleton isLoaded={!isLoading}>
+                {maxRotations.toLocaleString()}
+              </Skeleton>
+            </div>
             <CardBody>
-              <div className="flex flex-row gap-1">
-                <p>Total Rotations:</p>
-                <Skeleton isLoaded={!isLoading}>
-                  {totalRotations.toLocaleString()}
-                </Skeleton>
-              </div>
-              <div className="flex flex-row gap-1">
-                <p>Total Miles:</p>
-                <Skeleton isLoaded={!isLoading}>
-                  {(totalRotations * 0.00049589646).toFixed(5)}
-                </Skeleton>
-              </div>
-              <div className="flex flex-row gap-1">
-                <p>Average RPM:</p>
-                <Skeleton isLoaded={!isLoading}>
-                  {averageRotations.toLocaleString()}
-                </Skeleton>
-              </div>
-              <div className="flex flex-row gap-1">
-                <p>Record RPM:</p>
-                <Skeleton isLoaded={!isLoading}>
-                  {maxRotations.toLocaleString()}
-                </Skeleton>
-              </div>
+              <Skeleton isLoaded={!isLoading}>
+                {innerX > 768 ? (
+                  <LineChart data={rotationData} width={600} height={400}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend
+                      verticalAlign="top"
+                      wrapperStyle={{ lineHeight: "40px" }}
+                    />
+                    <Line
+                      dot={false}
+                      type="monotone"
+                      dataKey="value"
+                      name="Rotation Speed (RPM)"
+                      stroke="#8884d8"
+                    />
+                  </LineChart>
+                ) : (
+                  <LineChart width={300} height={250} data={rotationData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend
+                      verticalAlign="top"
+                      wrapperStyle={{ lineHeight: "40px" }}
+                    />
+                    <Line
+                      dot={false}
+                      type="monotone"
+                      dataKey="value"
+                      name="Rotation Speed (RPM)"
+                      stroke="#8884d8"
+                    />
+                  </LineChart>
+                )}
+              </Skeleton>
             </CardBody>
-            <CardFooter>
-              <Image
-                src={HamsterGif}
-                alt="Hamster in a wheel"
-                draggable={false}
-                className="rounded-lg"
-              />
-            </CardFooter>
           </Card>
           <Card className="p-4 items-center justify-center text-center">
-            <h1 className="text-2xl">Hamster Wheel Activity</h1>
-            <h2 className="text-sm">Shows the activity of the past day</h2>
-            <Skeleton isLoaded={!isLoading}>
+            <CardHeader>
+              <h1 className="text-2xl">Hamster Motion</h1>
+              <h2 className="text-sm">
+                Shows the movement of the hamster in the past day
+              </h2>
+            </CardHeader>
+            <CardBody>
               {innerX > 768 ? (
-                <LineChart
-                  width={730}
-                  height={250}
-                  data={chartData}
-                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                >
+                <LineChart width={600} height={400} data={hamsterMotion}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
                   <YAxis />
@@ -188,12 +264,12 @@ const HamsterPage = () => {
                     dot={false}
                     type="monotone"
                     dataKey="value"
-                    name="Rotation Speed (RPM)"
+                    name="Motion"
                     stroke="#8884d8"
                   />
                 </LineChart>
               ) : (
-                <LineChart width={300} height={250} data={chartData}>
+                <LineChart width={300} height={250} data={hamsterMotion}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
                   <YAxis />
@@ -206,12 +282,12 @@ const HamsterPage = () => {
                     dot={false}
                     type="monotone"
                     dataKey="value"
-                    name="Rotation Speed (RPM)"
+                    name="Motion"
                     stroke="#8884d8"
                   />
                 </LineChart>
               )}
-            </Skeleton>
+            </CardBody>
           </Card>
         </div>
       </div>
