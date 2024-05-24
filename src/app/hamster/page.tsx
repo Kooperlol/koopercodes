@@ -10,7 +10,6 @@ import {
   LineElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import zoomPlugin from "chartjs-plugin-zoom";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import KooperParticles from "@/components/particles";
@@ -20,8 +19,7 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Tooltip,
-  zoomPlugin
+  Tooltip
 );
 
 const HamsterPage = () => {
@@ -68,6 +66,13 @@ const HamsterPage = () => {
       value: entry.value,
     }));
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined")
+      import("chartjs-plugin-zoom").then((plugin) => {
+        ChartJS.register(plugin.default);
+      });
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
