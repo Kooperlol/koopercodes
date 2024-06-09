@@ -24,12 +24,13 @@ ChartJS.register(
 
 const HamsterPage = () => {
   const [rotationData, setRotationData] = useState<
-    { date: Date; value: number }[]
+    { date: string; value: number }[]
   >([]);
   const [isLoading, setIsLoading] = useState(false);
   const [totalRotations, setTotalRotations] = useState<number>(0);
   const [maxRotations, setMaxRotations] = useState<number>(0);
   const [averageRotations, setAverageRotations] = useState<number>(0);
+  const rotationMiles = 0.00049589646;
 
   interface RotationDataEntry {
     timestamp: number;
@@ -42,7 +43,7 @@ const HamsterPage = () => {
 
   const formatRotationData = (
     data: RotationData
-  ): { date: Date; value: number }[] => {
+  ): { date: string; value: number }[] => {
     if (!data || !data.history) {
       console.error(
         "Invalid data format for chart. Missing required properties."
@@ -62,7 +63,7 @@ const HamsterPage = () => {
       .sort((a, b) => a.timestamp - b.timestamp);
 
     return filteredAndSortedData.map((entry) => ({
-      date: new Date(entry.timestamp * 1000),
+      date: new Date(entry.timestamp * 1000).toISOString(),
       value: entry.value,
     }));
   };
@@ -134,33 +135,33 @@ const HamsterPage = () => {
           </h1>
           <Card className="p-6 w-full h-full">
             <CardHeader className="text-center">
-              <h1 className="text-2xl">Hamster Wheel Activity</h1>
+              <h1 className="text-2xl">🐹 Hamster Wheel Activity</h1>
               <h2 className="text-sm">Shows the activity of the past day</h2>
             </CardHeader>
             <div className="flex flex-col items-center justify-center gap-2 mb-4">
               <div className="flex flex-row gap-1">
-                <p>Total Rotations:</p>
                 <Skeleton isLoaded={!isLoading}>
-                  {totalRotations.toLocaleString()}
+                  <b>{totalRotations.toLocaleString()}</b>
                 </Skeleton>
+                <p>all-time rotations</p>
               </div>
               <div className="flex flex-row gap-1">
-                <p>Total Miles:</p>
                 <Skeleton isLoaded={!isLoading}>
-                  {(totalRotations * 0.00049589646).toFixed(5)}
+                  <b>{(totalRotations * rotationMiles).toFixed(5)}</b>
                 </Skeleton>
+                <p>all-time miles</p>
               </div>
               <div className="flex flex-row gap-1">
-                <p>Average RPM:</p>
                 <Skeleton isLoaded={!isLoading}>
-                  {averageRotations.toLocaleString()}
+                  <b>{averageRotations.toLocaleString()}</b>
                 </Skeleton>
+                <p>average RPM</p>
               </div>
               <div className="flex flex-row gap-1">
-                <p>Record RPM:</p>
                 <Skeleton isLoaded={!isLoading}>
-                  {maxRotations.toLocaleString()}
+                  <b>{maxRotations.toLocaleString()}</b>
                 </Skeleton>
+                <p>🏆 record RPM</p>
               </div>
             </div>
             <CardBody className="w-full h-full">
@@ -191,7 +192,7 @@ const HamsterPage = () => {
                   }}
                   data={{
                     labels: rotationData.map((entry) =>
-                      entry.date.toLocaleTimeString()
+                      new Date(entry.date).toLocaleTimeString()
                     ),
                     datasets: [
                       {

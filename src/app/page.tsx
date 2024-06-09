@@ -189,7 +189,7 @@ export default function Home() {
                 to production.
               </p>
               <p className="text-black text-2xl">
-                I'm currently an incoming computer science student at{" "}
+                I'm currently a computer science student at{" "}
                 <Tooltip label="A private, accredited university with over 200 online & on-campus programs. Known for affordability and focus on career-oriented degrees.">
                   <span className="text-main font-bold">
                     Southern New Hampshire University
