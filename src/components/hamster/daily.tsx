@@ -9,6 +9,9 @@ import {
   Tooltip,
   PointElement,
   LineElement,
+  Title,
+  Legend,
+  Filler,
 } from "chart.js";
 
 ChartJS.register(
@@ -16,7 +19,10 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Tooltip
+  Tooltip,
+  Title,
+  Legend,
+  Filler
 );
 
 const DailyRotations = () => {
@@ -101,6 +107,24 @@ const DailyRotations = () => {
               maintainAspectRatio: false,
               responsive: true,
               plugins: {
+                title: {
+                  display: true,
+                  text: "Hamster Wheel Activity Over the Past Day",
+                },
+                tooltip: {
+                  callbacks: {
+                    label: function (context) {
+                      const label = context.dataset.label || "";
+                      const value = context.raw;
+                      const time = context.label;
+                      return `${label}: ${value} rotations at ${time}`;
+                    },
+                  },
+                },
+                legend: {
+                  display: true,
+                  position: "top",
+                },
                 zoom: {
                   pan: {
                     enabled: true,
@@ -119,18 +143,45 @@ const DailyRotations = () => {
                   },
                 },
               },
+              scales: {
+                x: {
+                  title: {
+                    display: true,
+                    text: "Time",
+                  },
+                  grid: {
+                    display: false,
+                  },
+                },
+                y: {
+                  title: {
+                    display: true,
+                    text: "Rotations per Minute",
+                  },
+                  grid: {
+                    color: "rgba(200, 200, 200, 0.2)",
+                  },
+                },
+              },
             }}
             data={{
-              labels: rotationData.map((entry) =>
-                new Date(entry.date).toLocaleTimeString()
-              ),
+              labels: rotationData.map((entry) => {
+                const entryDate = new Date(entry.date);
+                return entryDate.toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                });
+              }),
               datasets: [
                 {
                   label: "Rotations per Minute",
                   data: rotationData.map((entry) => entry.value),
-                  fill: false,
+                  fill: true,
+                  backgroundColor: "rgba(20, 99, 243, 0.1)",
                   borderColor: "#1463F3",
-                  tension: 0.1,
+                  pointBackgroundColor: "#1463F3",
+                  pointBorderColor: "#fff",
+                  tension: 0.4,
                 },
               ],
             }}

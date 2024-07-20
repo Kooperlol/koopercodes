@@ -3,7 +3,10 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, Skeleton } from "@chakra-ui/react";
-import AnimatedNumber from "react-animated-numbers";
+import dynamic from "next/dynamic";
+const AnimatedNumber = dynamic(() => import("react-animated-numbers"), {
+  ssr: false,
+});
 import axios from "axios";
 import { compareHamsterRunToStates } from "@/utils/state-compare";
 import DailyRotations from "@/components/hamster/daily";
@@ -87,42 +90,11 @@ const HamsterPage = () => {
         </div>
       </div>
       <div
-        className="relative min-h-screen py-12 flex items-center justify-center"
+        className="min-h-screen py-12 flex items-center justify-center"
         style={{
           background: "#ADD8E6",
         }}
       >
-        <motion.div
-          className="absolute top-3 right-0 hidden lg:block z-0"
-          animate={{
-            y: [20, -20, 20],
-          }}
-          transition={{
-            duration: 5,
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        >
-          <Image
-            className="select-none"
-            priority
-            src="/images/flying-hamster.png"
-            draggable={false}
-            width={400}
-            height={400}
-            alt="Hamster floating up and down"
-          />
-        </motion.div>
-        <Image
-          className="select-none absolute hidden lg:block bottom-0 left-0 z-0"
-          priority
-          src="/images/wheel.png"
-          draggable={false}
-          width={400}
-          height={400}
-          alt="Hamster wheel"
-        />
         <div className="flex flex-col lg:flex-row gap-5 items-center justify-center">
           <Card
             className="card-with-filter"
@@ -133,10 +105,10 @@ const HamsterPage = () => {
             }
           >
             <div className="flex items-center justify-center flex-col gap-1 text-white">
-              <p className="text-center text-9xl">🏆</p>
-              <p className="text-center text-5xl">Record RPM</p>
+              <p className="text-center text-5xl">🏆</p>
+              <p className="text-center text-3xl">Record RPM</p>
               <Skeleton isLoaded={!isLoading}>
-                <p className="flex flex-row justify-center text-white text-8xl font-bold">
+                <p className="flex flex-row justify-center text-white text-6xl font-bold">
                   <AnimatedNumber
                     animateToNumber={maxRotations}
                     transitions={(index) => ({
@@ -159,10 +131,10 @@ const HamsterPage = () => {
             className="card-with-filter"
           >
             <div className="flex flex-col gap-1 text-white">
-              <p className="text-center text-9xl">📊</p>
-              <p className="text-center text-5xl">Average RPM</p>
+              <p className="text-center text-5xl">📊</p>
+              <p className="text-center text-3xl">Average RPM</p>
               <Skeleton isLoaded={!isLoading}>
-                <p className="flex flex-row justify-center text-white text-8xl font-bold">
+                <p className="flex flex-row justify-center text-white text-6xl font-bold">
                   <AnimatedNumber
                     animateToNumber={Number(averageRotations.toFixed(0))}
                     transitions={(index) => ({
@@ -185,10 +157,10 @@ const HamsterPage = () => {
             className="card-with-filter"
           >
             <div className="flex flex-col gap-1 text-white">
-              <p className="text-center text-9xl">🥵</p>
-              <p className="text-center text-5xl">Total Rotations</p>
+              <p className="text-center text-5xl">🥵</p>
+              <p className="text-center text-3xl">Total Rotations</p>
               <Skeleton isLoaded={!isLoading} width={"700px"}>
-                <p className="flex flex-row justify-center text-white text-8xl font-bold">
+                <p className="flex flex-row justify-center text-white text-6xl font-bold">
                   <AnimatedNumber
                     includeComma={true}
                     animateToNumber={totalRotations}
@@ -212,10 +184,10 @@ const HamsterPage = () => {
             className="card-with-filter"
           >
             <div className="flex flex-col gap-1  text-white">
-              <p className="text-center text-9xl">🗺️</p>
-              <p className="text-center text-5xl">Total Miles</p>
+              <p className="text-center text-5xl">🗺️</p>
+              <p className="text-center text-3xl">Total Miles</p>
               <Skeleton isLoaded={!isLoading}>
-                <p className="flex flex-row justify-center text-white text-8xl font-bold">
+                <p className="flex flex-row justify-center text-white text-6xl font-bold">
                   <AnimatedNumber
                     includeComma={true}
                     animateToNumber={Number(totalMiles.toFixed(0))}
@@ -234,7 +206,7 @@ const HamsterPage = () => {
                 }}
                 lineHeight={2}
               >
-                <p className="text-center">
+                <p className="text-xl text-center">
                   {compareHamsterRunToStates(totalMiles)}
                 </p>
               </Skeleton>
@@ -243,7 +215,7 @@ const HamsterPage = () => {
         </div>
       </div>
       <div
-        className="min-h-screen h-screen py-12 flex items-center justify-center"
+        className="relative min-h-screen h-screen py-12 flex items-center justify-center"
         style={{
           background: "#F08080",
         }}
