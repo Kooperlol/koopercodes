@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardBody, CardHeader, Skeleton } from "@chakra-ui/react";
 import { Line } from "react-chartjs-2";
 import React, { useEffect, useState } from "react";
@@ -62,10 +64,15 @@ const DailyRotations = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined")
-      import("chartjs-plugin-zoom").then((plugin) => {
-        ChartJS.register(plugin.default);
-      });
+    if (typeof window !== "undefined") {
+      import("chartjs-plugin-zoom")
+        .then((plugin) => {
+          ChartJS.register(plugin.default);
+        })
+        .catch((error) =>
+          console.error("Error loading chartjs-plugin-zoom:", error)
+        );
+    }
   }, []);
 
   useEffect(() => {

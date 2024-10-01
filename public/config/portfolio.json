@@ -1,6 +1,13 @@
 {
   "projects": [
     {
+      "name": "Lakeview",
+      "image": "https://www.lakeviewcampgroundandbar.com/_next/image?url=%2Fphotos%2Flakeviewlogo.png&w=256&q=75",
+      "description": "I work as a line cook at Lakeview Bar and Grill, and I took the initiative to redevelop their website using Next.js and Tailwind CSS. The new site aims to provide a modern, responsive experience for customers, highlighting the unique atmosphere of the bar and grill.",
+      "date": "2024",
+      "url": "https://www.lakeviewcampgroundandbar.com/"
+    },
+    {
       "name": "NexaDB",
       "image": "https://github.com/Kooperlol/nexadb/blob/main/public/media/logo.png?raw=true",
       "description": "In Future Business Leaders of America, my partner and I competed in Website Coding & Development. We made NexaDB, a website for a database management company to help the company find applicants. The website includes an application form, a page with employee benefits and business information, a careers page, and a dashboard for the management to review applicants.",
@@ -139,6 +146,11 @@
       "name": "JavaFX",
       "image": "https://www.qfs.de/fileadmin/Webdata/logos-icons/JavaFX.png",
       "description": "JavaFX is a software platform for creating and delivering desktop applications. It is a powerful tool for building user interfaces and developing desktop applications."
+    },
+    {
+      "name": "C++",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
+      "description": "C++ is a powerful general-purpose programming language known for its performance and efficiency. It supports both object-oriented and procedural programming paradigms, making it suitable for a wide range of applications, from system software to game development and large-scale applications."
     }
   ]
 }

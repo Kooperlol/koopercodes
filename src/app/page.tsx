@@ -214,11 +214,11 @@ export default function Home() {
           <p className="text-center text-black text-4xl font-bold">
             Technologies
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-8 gap-5 justify-center items-center">
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-8 gap-5 justify-center items-center">
             {portfolioJSON.technologies.map((skill, index) => {
               return (
                 <Tooltip key={index} label={skill.description}>
-                  <div className="flex flex-row gap-3 bg-white p-3 rounded-lg shadow-md hover:drop-shadow-2xl">
+                  <div className="flex flex-row gap-3 justify-center bg-white p-3 rounded-lg shadow-md hover:drop-shadow-2xl hover:scale-110">
                     <Image
                       src={skill.image}
                       alt={skill.name}
