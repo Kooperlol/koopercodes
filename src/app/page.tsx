@@ -1,17 +1,18 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { TypeAnimation } from "react-type-animation";
 import KooperParticles from "@/components/particles";
 import portfolioJSON from "@/../public/config/portfolio.json";
 import ProjectCard from "@/components/project-card";
 import Link from "next/link";
-import { Button } from "@chakra-ui/button";
 import { useRouter } from "next/navigation";
 import kooperimage from "@/../public/images/kooper.webp";
 import aboutimage from "@/../public/images/about.webp";
-import { Tooltip } from "@chakra-ui/react";
+import { Box, Tooltip } from "@chakra-ui/react";
 import hamsterIcon from "@/../public/images/hamster.png";
+import LetterPullup from "@/components/ui/letter-pullup";
+import PulsatingButton from "@/components/ui/pulsating-button";
+import IconCloud from "@/components/ui/icon-cloud";
 
 export default function Home() {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -111,37 +112,21 @@ export default function Home() {
               transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
             ref={headerRef}
-            className="flex flex-col 2xl:gap-5 gap-0"
+            className="flex flex-col 2xl:gap-5 gap-0 md:items-start items-center"
           >
+            <p className="white 2xl:text-4xl text-2xl">👋 Hello, I'm</p>
             <p
-              className="white 2xl:text-9xl text-4xl"
+              className="white 2xl:text-8xl text-4xl"
               style={{
                 textShadow:
                   "-0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000",
               }}
             >
-              I'm <b>Kooper</b>
+              <b>Kooper Propp</b>
             </p>
-            <TypeAnimation
-              className="2xl:text-6xl text-2xl"
-              sequence={[
-                "Web Developer",
-                1000,
-                "App Developer",
-                1000,
-                "Game Developer",
-                1000,
-                "Software Engineer",
-                1000,
-              ]}
-              wrapper="span"
-              speed={75}
-              style={{
-                display: "inline-block",
-                textShadow:
-                  "-0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000",
-              }}
-              repeat={Infinity}
+            <LetterPullup
+              className="text-white 2xl:text-4xl text-2xl font-normal"
+              words="Software Engineer / Web Developer"
             />
           </div>
           <Image
@@ -165,7 +150,7 @@ export default function Home() {
         {/* About */}
         <div
           id="about"
-          className="flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center items-center justify-center py-8 gap-10 2xl:px-0 px-6"
+          className="relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center items-center justify-center py-8 gap-10 2xl:px-0 px-6"
         >
           <Image
             className="rounded-full lg:w-1/3 w-1/2"
@@ -210,29 +195,46 @@ export default function Home() {
           </div>
         </div>
         {/* Technologies */}
-        <div id="technologies" className="bg-full p-10 flex flex-col gap-3">
+        <div
+          id="technologies"
+          className="bg-full p-10 flex flex-col gap-3 items-center justify-center"
+        >
           <p className="text-center text-black text-4xl font-bold">
             Technologies
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-8 gap-5 justify-center items-center">
-            {portfolioJSON.technologies.map((skill, index) => {
-              return (
-                <Tooltip key={index} label={skill.description}>
-                  <div className="flex flex-row gap-3 justify-center bg-white p-3 rounded-lg shadow-md hover:drop-shadow-2xl hover:scale-110">
-                    <Image
-                      src={skill.image}
-                      alt={skill.name}
-                      loading="lazy"
-                      rel="dns-prefetch"
-                      draggable={false}
-                      width={24}
-                      height={24}
-                    />
-                    <p className="text-black text-xl">{skill.name}</p>
-                  </div>
-                </Tooltip>
-              );
-            })}
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <Box width={"500px"} height={"500px"}>
+              <IconCloud
+                iconSlugs={
+                  portfolioJSON.technologies?.map((skill) =>
+                    skill.name.toLowerCase()
+                  ) || []
+                }
+              />
+            </Box>
+
+            <div className="flex items-center justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 h-min justify-center items-center">
+                {portfolioJSON.technologies.map((skill, index) => {
+                  return (
+                    <Tooltip key={index} label={skill.description}>
+                      <div className="flex flex-row gap-3 justify-center bg-white p-3 rounded-lg shadow-md hover:drop-shadow-2xl hover:scale-110">
+                        <Image
+                          src={skill.image}
+                          alt={skill.name}
+                          loading="lazy"
+                          rel="dns-prefetch"
+                          draggable={false}
+                          width={24}
+                          height={24}
+                        />
+                        <p className="text-black text-xl">{skill.name}</p>
+                      </div>
+                    </Tooltip>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
         {/* Projects */}
@@ -254,18 +256,16 @@ export default function Home() {
           </div>
         </div>
         {/* Contact */}
-        <div className="bg-full p-10 flex flex-col items-center gap-3">
+        <div className="bg-full p-10 flex flex-col items-center gap-5">
           <p className="text-center text-black text-4xl font-bold">
             Let's get in touch!
           </p>
-          <Button
-            backgroundColor={"#1463F3"}
-            color={"white"}
-            width={"min-content"}
+          <PulsatingButton
+            color={"blue"}
             onClick={() => router.push("/contact")}
           >
             Contact Me
-          </Button>
+          </PulsatingButton>
         </div>
       </div>
     </div>

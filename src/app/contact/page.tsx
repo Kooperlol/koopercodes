@@ -173,7 +173,8 @@ const ContactPage = () => {
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
               I'm always looking for new opportunities to collaborate with
               others. Whether you're looking for a new website, a new feature,
-              or just want to chat, I'm always open to new ideas.
+              or just want to chat, I'm always open to new ideas. Alternatively,
+              you can email me at koopercodes@gmail.com.
             </Text>
           </Stack>
           <Box as={"form"} ref={formRef} id="contact" onSubmit={handleSubmit}>

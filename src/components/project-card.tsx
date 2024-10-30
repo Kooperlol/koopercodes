@@ -1,14 +1,22 @@
-import { Card, CardBody, Stack, Heading, Text } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Stack,
+  Heading,
+  Text,
+  CardFooter,
+  IconButton,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
+import ShimmerButton from "./ui/shimmer-button";
 
 export interface IProjectCardProps {
   name: string;
   description: string;
   image: string;
   url: string;
-  date: string;
 }
 
 export default class ProjectCard extends React.Component<IProjectCardProps> {
@@ -29,12 +37,26 @@ export default class ProjectCard extends React.Component<IProjectCardProps> {
               height={300}
             />
             <Stack mt="6" spacing="3" className="h-56">
-              <Heading size="md" className="text-main font-bold">
-                {this.props.name} - {this.props.date}
+              <Heading size="md" className="text-main text-center font-bold">
+                {this.props.name}
               </Heading>
-              <Text overflowY={"scroll"}>{this.props.description}</Text>
+              <Text
+                overflowY="scroll"
+                css={{
+                  "&::-webkit-scrollbar": {
+                    display: "none",
+                  },
+                  "-ms-overflow-style": "none",
+                  "scrollbar-width": "none",
+                }}
+              >
+                {this.props.description}
+              </Text>
             </Stack>
           </CardBody>
+          <CardFooter className="flex flex-row justify-center">
+            <ShimmerButton>View</ShimmerButton>
+          </CardFooter>
         </Card>
       </Link>
     );

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, Skeleton } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
@@ -12,12 +12,43 @@ import { compareHamsterRunToStates } from "@/utils/state-compare";
 import DailyRotations from "@/components/hamster/daily";
 
 const HamsterPage = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [isHeaderInView, setIsHeaderInView] = useState(false);
+  const [width, setWidth] = useState<number>(0);
   const [totalRotations, setTotalRotations] = useState<number>(0);
   const [maxRotations, setMaxRotations] = useState<number>(0);
   const [averageRotations, setAverageRotations] = useState<number>(0);
   const rotationMiles = 0.000495;
   const [isLoading, setIsLoading] = useState(false);
   const totalMiles = totalRotations * rotationMiles;
+
+  useEffect(() => {
+    const isElementInView =
+      headerRef.current?.getBoundingClientRect().top!! >= 0 &&
+      headerRef.current?.getBoundingClientRect().bottom!! <= window.innerHeight;
+    if (isElementInView) {
+      setTimeout(() => {
+        setIsHeaderInView(true);
+      }, 150);
+    }
+
+    const handleScroll = () => {
+      const isElementInView =
+        headerRef.current?.getBoundingClientRect().top!! >= 0 &&
+        headerRef.current?.getBoundingClientRect().bottom!! <=
+          window.innerHeight;
+      if (isElementInView) {
+        setIsHeaderInView(true);
+      }
+    };
+
+    setWidth(window.innerWidth);
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [headerRef]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,19 +83,40 @@ const HamsterPage = () => {
     <div>
       <div className="parallax">
         <div className="parallax__layer parallax__layer--desktop" />
+        <div
+          className="mb-5 mouse-icon"
+          style={{
+            opacity: isHeaderInView ? 1 : 0,
+            transform: isHeaderInView ? "none" : "translateY(25px)",
+            transitionProperty: "transform, opacity",
+            transitionDuration: "0.9s",
+            transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
+          }}
+        >
+          <div className="scroll" />
+        </div>
         <div className="flex flex-col items-center justify-center h-screen p-8 lg:p-0">
           <div className="gap-4 w-full h-full items-center flex flex-col lg:flex-row justify-center lg:justify-between lg:px-32 z-10">
-            <div className="flex flex-col gap-4 text-center lg:text-left">
-              <h1 className="lg:text-9xl text-7xl relative">
-                Meet <b>Bear</b>🐻,
-              </h1>
-              <h1 className="lg:text-7xl text-4xl text-white">
-                My <i>Adventurous</i> Hamster
-              </h1>
-              <h1 className="lg:text-5xl text-3xl text-white">
-                Scroll down to see some statistics!
-              </h1>
+            <div
+              id="header"
+              className="h-screen relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center 2xl:justify-between justify-center items-center p-16"
+            >
+              <div
+                ref={headerRef}
+                className="flex flex-col gap-4 text-center lg:text-left"
+              >
+                <h1 className="lg:text-9xl text-7xl relative">
+                  Meet <b>Bear</b>🐻,
+                </h1>
+                <h1 className="lg:text-7xl text-4xl text-white">
+                  My <i>Adventurous</i> Hamster
+                </h1>
+                <h1 className="lg:text-5xl text-3xl text-white">
+                  Scroll down to see some statistics!
+                </h1>
+              </div>
             </div>
+
             <motion.div
               animate={{
                 y: [20, -20, 20],
@@ -90,7 +142,7 @@ const HamsterPage = () => {
         </div>
       </div>
       <div
-        className="min-h-screen py-12 flex items-center justify-center"
+        className="py-32 flex items-center justify-center"
         style={{
           background: "#ADD8E6",
         }}
@@ -215,12 +267,12 @@ const HamsterPage = () => {
         </div>
       </div>
       <div
-        className="relative min-h-screen h-screen py-12 flex items-center justify-center"
+        className="relative h-screen flex items-center justify-center"
         style={{
           background: "#F08080",
         }}
       >
-        <div className="h-2/3 w-3/4">
+        <div className="h-3/4 w-3/4">
           <DailyRotations />
         </div>
       </div>

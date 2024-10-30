@@ -4,36 +4,31 @@
       "name": "Lakeview",
       "image": "https://www.lakeviewcampgroundandbar.com/_next/image?url=%2Fphotos%2Flakeviewlogo.png&w=256&q=75",
       "description": "I work as a line cook at Lakeview Bar and Grill, and I took the initiative to redevelop their website using Next.js and Tailwind CSS. The new site aims to provide a modern, responsive experience for customers, highlighting the unique atmosphere of the bar and grill.",
-      "date": "2024",
       "url": "https://www.lakeviewcampgroundandbar.com/"
     },
     {
       "name": "NexaDB",
       "image": "https://github.com/Kooperlol/nexadb/blob/main/public/media/logo.png?raw=true",
       "description": "In Future Business Leaders of America, my partner and I competed in Website Coding & Development. We made NexaDB, a website for a database management company to help the company find applicants. The website includes an application form, a page with employee benefits and business information, a careers page, and a dashboard for the management to review applicants.",
-      "url": "https://nexadb.vercel.app/en",
-      "date": "2024"
+      "url": "https://nexadb.vercel.app/en"
     },
     {
       "name": "MHS Laude",
       "image": "https://github.com/Kooperlol/mhslaude/blob/main/client/public/media/favicon.png?raw=true",
       "description": "MHS Laude is a website for Milton High School for students to calculate their laude points. I decided to make this as calculations were done by hand. Students can upload their transcripts and get results. No more need to pull out a calculator and follow a multiple-page rubric with chance of human error.",
-      "url": "https://www.mhslaude.com/",
-      "date": "2024"
+      "url": "https://www.mhslaude.com/"
     },
     {
       "name": "Milton Relay",
       "image": "https://github.com/Kooperlol/milton_relay/blob/master/assets/miltonrelay-logo.png?raw=true",
       "description": "In Future Business Leaders of America, I competed in Mobile Application Development. Milton Relay is a mobile application for my school to help keep parents and the community up to date. The app includes upcoming events, important information such as the school calendar and activities schedule, a way for teachers and students to share photos, and a way for parents to notify the school of student absences. In addition, I added a Laude Point calculator recommended by the school administration. In the program, there is a admin, student, teacher, and parent interface, each with different features.",
-      "url": "https://github.com/Kooperlol/milton_relay",
-      "date": "2023"
+      "url": "https://github.com/Kooperlol/milton_relay"
     },
     {
       "name": "Journey",
       "image": "https://github.com/Kooperlol/Journey/blob/main/src/main/resources/me/kooper/fbla/media/Journey.png?raw=true",
       "description": "In Future Business Leaders of America, I competed in Coding & Programming. Here is the task: You have been hired by your state or local area’s tourism bureau to develop a program that suggests attractions (can be tourist attractions, restaurants, shopping, things to do, etc.) to potential visitors. Your program will allow users to search for attractions in the area based on desired attributes, such as location, type of attraction, and amenities. Your program must include at least 50 attractions, and users must be able to define at least five desired attributes to search for an attraction.",
-      "url": "https://github.com/Kooperlol/Journey",
-      "date": "2022"
+      "url": "https://github.com/Kooperlol/Journey"
     }
   ],
   "technologies": [
@@ -56,11 +51,6 @@
       "name": "MongoDB",
       "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
       "description": "MongoDB is a NoSQL database program that uses JSON-like documents with optional schemas. It is a powerful tool for storing and managing data in web applications."
-    },
-    {
-      "name": "Skript",
-      "image": "https://docs.skriptlang.org/assets/icon.png",
-      "description": "Skript is a plugin for Minecraft servers that allows for the creation of custom commands and events. It is a powerful tool for server owners to create custom experiences for their players."
     },
     {
       "name": "Java",
@@ -93,44 +83,9 @@
       "description": "Git is a distributed version control system that is used to track changes in source code during software development. It is a powerful tool for collaborating with other developers and managing codebases."
     },
     {
-      "name": "GitHub",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-      "description": "GitHub is a web-based platform that is used to host and review code, manage projects, and build software. It is a powerful tool for collaborating with other developers and managing codebases."
-    },
-    {
-      "name": "Vercel",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
-      "description": "Vercel is a cloud platform that is used to deploy web applications and serverless functions. It is a powerful tool for hosting and scaling web applications."
-    },
-    {
       "name": "Kotlin",
       "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
       "description": "Kotlin is a cross-platform, statically typed programming language that is used to develop Android applications. It is a powerful tool for building mobile applications."
-    },
-    {
-      "name": "Dart",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
-      "description": "Dart is a programming language that is used to develop mobile, desktop, server, and web applications. It is a powerful tool for building cross-platform applications."
-    },
-    {
-      "name": "Node.js",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-      "description": "Node.js is an open-source, cross-platform JavaScript runtime environment that is used to execute JavaScript code outside of a web browser. It is a powerful tool for building server-side applications."
-    },
-    {
-      "name": "Trello",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg",
-      "description": "Trello is a web-based project management application that is used to organize and manage tasks and projects. It is a powerful tool for collaborating with other developers and managing projects."
-    },
-    {
-      "name": "IntelliJ",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg",
-      "description": "IntelliJ IDEA is an integrated development environment that is used to develop software applications in Java, Kotlin, and other programming languages. It is a powerful tool for writing, compiling, and debugging code."
-    },
-    {
-      "name": "VSC",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-      "description": "Visual Studio Code is a source code editor that is used to write, compile, and debug code in various programming languages. It is a powerful tool for developing software applications."
     },
     {
       "name": "Redis",

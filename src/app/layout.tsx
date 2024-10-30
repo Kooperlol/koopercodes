@@ -3,8 +3,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import Footer from "@/components/footer";
-import Header from "@/components/header";
 import GoogleCaptchaProvider from "./providers/captcha-provider";
+import Header from "@/components/header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,7 +16,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Kooper Codes",
   description:
-    "Kooper Codes is a Rock County, WI web design and development company specializing in crafting exceptional mobile apps, web applications, and software solutions to propel your business forward.",
+    "A passionate software engineer and web developer specializing in creating innovative, high-performance applications and websites.",
 };
 
 export default function RootLayout({
