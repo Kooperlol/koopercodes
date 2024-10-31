@@ -3,32 +3,37 @@
     {
       "name": "Lakeview",
       "image": "https://www.lakeviewcampgroundandbar.com/_next/image?url=%2Fphotos%2Flakeviewlogo.png&w=256&q=75",
-      "description": "I work as a line cook at Lakeview Bar and Grill, and I took the initiative to redevelop their website using Next.js and Tailwind CSS. The new site aims to provide a modern, responsive experience for customers, highlighting the unique atmosphere of the bar and grill.",
-      "url": "https://www.lakeviewcampgroundandbar.com/"
+      "description": "Developed a modern website for a local bar & grill.",
+      "url": "https://www.lakeviewcampgroundandbar.com/",
+      "tech": ["Next.JS", "Tailwind", "Wordpress"]
     },
     {
       "name": "NexaDB",
       "image": "https://github.com/Kooperlol/nexadb/blob/main/public/media/logo.png?raw=true",
-      "description": "In Future Business Leaders of America, my partner and I competed in Website Coding & Development. We made NexaDB, a website for a database management company to help the company find applicants. The website includes an application form, a page with employee benefits and business information, a careers page, and a dashboard for the management to review applicants.",
-      "url": "https://nexadb.vercel.app/en"
+      "description": "Built a website for a database company to streamline applicant management.",
+      "url": "https://nexadb.vercel.app/en",
+      "tech": ["Next.JS", "Tailwind", "Firebase", "MongoDB", "Prisma"]
     },
     {
       "name": "MHS Laude",
       "image": "https://github.com/Kooperlol/mhslaude/blob/main/client/public/media/favicon.png?raw=true",
-      "description": "MHS Laude is a website for Milton High School for students to calculate their laude points. I decided to make this as calculations were done by hand. Students can upload their transcripts and get results. No more need to pull out a calculator and follow a multiple-page rubric with chance of human error.",
-      "url": "https://www.mhslaude.com/"
+      "description": "Created a site for students to calculate laude points from transcripts.",
+      "url": "https://www.mhslaude.com/",
+      "tech": ["Next.JS", "Tailwind", "Python"]
     },
     {
       "name": "Milton Relay",
       "image": "https://github.com/Kooperlol/milton_relay/blob/master/assets/miltonrelay-logo.png?raw=true",
-      "description": "In Future Business Leaders of America, I competed in Mobile Application Development. Milton Relay is a mobile application for my school to help keep parents and the community up to date. The app includes upcoming events, important information such as the school calendar and activities schedule, a way for teachers and students to share photos, and a way for parents to notify the school of student absences. In addition, I added a Laude Point calculator recommended by the school administration. In the program, there is a admin, student, teacher, and parent interface, each with different features.",
-      "url": "https://github.com/Kooperlol/milton_relay"
+      "description": "Developed a mobile app to keep the school community updated.",
+      "url": "https://github.com/Kooperlol/milton_relay",
+      "tech": ["Flutter", "Dart", "Firebase"]
     },
     {
       "name": "Journey",
       "image": "https://github.com/Kooperlol/Journey/blob/main/src/main/resources/me/kooper/fbla/media/Journey.png?raw=true",
-      "description": "In Future Business Leaders of America, I competed in Coding & Programming. Here is the task: You have been hired by your state or local area’s tourism bureau to develop a program that suggests attractions (can be tourist attractions, restaurants, shopping, things to do, etc.) to potential visitors. Your program will allow users to search for attractions in the area based on desired attributes, such as location, type of attraction, and amenities. Your program must include at least 50 attractions, and users must be able to define at least five desired attributes to search for an attraction.",
-      "url": "https://github.com/Kooperlol/Journey"
+      "description": "Built a program for tourists to find local attractions based on preferences.",
+      "url": "https://github.com/Kooperlol/Journey",
+      "tech": ["Java", "JavaFX", "MongoDB"]
     }
   ],
   "technologies": [
@@ -36,11 +41,6 @@
       "name": "NextJS",
       "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
       "description": "Next.js is a React framework that enables functionality such as server-side rendering and generating static websites for React applications. It is a powerful tool for building web applications."
-    },
-    {
-      "name": "React",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-      "description": "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications."
     },
     {
       "name": "Flutter",
@@ -88,19 +88,9 @@
       "description": "Kotlin is a cross-platform, statically typed programming language that is used to develop Android applications. It is a powerful tool for building mobile applications."
     },
     {
-      "name": "Redis",
-      "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-      "description": "Redis is an open-source, in-memory data structure store that is used as a database, cache, and message broker. It is a powerful tool for storing and managing data in web applications."
-    },
-    {
       "name": "Firebase",
       "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
       "description": "Firebase is a mobile and web application development platform that is used to build, improve, and grow applications. It is a powerful tool for developing and deploying applications."
-    },
-    {
-      "name": "JavaFX",
-      "image": "https://www.qfs.de/fileadmin/Webdata/logos-icons/JavaFX.png",
-      "description": "JavaFX is a software platform for creating and delivering desktop applications. It is a powerful tool for building user interfaces and developing desktop applications."
     },
     {
       "name": "C++",

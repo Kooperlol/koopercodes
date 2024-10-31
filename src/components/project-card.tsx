@@ -17,48 +17,51 @@ export interface IProjectCardProps {
   description: string;
   image: string;
   url: string;
+  tech: string[];
 }
 
 export default class ProjectCard extends React.Component<IProjectCardProps> {
   public render() {
     return (
-      <Link href={this.props.url} target="_blank">
-        <Card maxW="sm" className="hover:shadow-lg shadow-sm h-full">
-          <CardBody className="h-1/3">
-            <Image
-              src={this.props.image}
-              alt="Portfolio Image"
-              style={{ borderRadius: "lg" }}
-              className="w-full h-64 object-cover"
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
-              loading={"lazy"}
-              width={300}
-              height={300}
-            />
-            <Stack mt="6" spacing="3" className="h-56">
-              <Heading size="md" className="text-main text-center font-bold">
-                {this.props.name}
-              </Heading>
-              <Text
-                overflowY="scroll"
-                css={{
-                  "&::-webkit-scrollbar": {
-                    display: "none",
-                  },
-                  "-ms-overflow-style": "none",
-                  "scrollbar-width": "none",
-                }}
-              >
-                {this.props.description}
-              </Text>
-            </Stack>
-          </CardBody>
-          <CardFooter className="flex flex-row justify-center">
+      <Card maxW="sm" className="hover:shadow-lg shadow-sm w-full">
+        <CardBody className="h-1/2">
+          <Image
+            src={this.props.image}
+            alt="Portfolio Image"
+            style={{ borderRadius: "lg" }}
+            className="w-full h-64 object-contain"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
+            loading={"lazy"}
+            width={300}
+            height={300}
+          />
+          <Stack mt="6" spacing="3" className="h-56">
+            <Heading size="md" className="text-main font-bold">
+              {this.props.name}
+            </Heading>
+            <Text>{this.props.description}</Text>
+            <div className="w-full max-w-[900px] mx-auto">
+              <div className="flex flex-wrap gap-4">
+                {this.props.tech.map((tech, index) => (
+                  <Text
+                    key={index}
+                    className="bg-gray-100 rounded-lg p-1 text-center"
+                    fontSize={14}
+                  >
+                    {tech}
+                  </Text>
+                ))}
+              </div>
+            </div>
+          </Stack>
+        </CardBody>
+        <CardFooter className="flex flex-row">
+          <Link href={this.props.url} target="_blank">
             <ShimmerButton>View</ShimmerButton>
-          </CardFooter>
-        </Card>
-      </Link>
+          </Link>
+        </CardFooter>
+      </Card>
     );
   }
 }

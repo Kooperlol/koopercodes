@@ -7,8 +7,8 @@ import ProjectCard from "@/components/project-card";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import kooperimage from "@/../public/images/kooper.webp";
-import aboutimage from "@/../public/images/about.webp";
-import { Box, Tooltip } from "@chakra-ui/react";
+import { HiMiniDocumentText } from "react-icons/hi2";
+import { Box, IconButton, Tooltip } from "@chakra-ui/react";
 import hamsterIcon from "@/../public/images/hamster.png";
 import LetterPullup from "@/components/ui/letter-pullup";
 import PulsatingButton from "@/components/ui/pulsating-button";
@@ -112,22 +112,71 @@ export default function Home() {
               transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
             }}
             ref={headerRef}
-            className="flex flex-col 2xl:gap-5 gap-0 md:items-start items-center"
+            className="flex flex-col 2xl:gap-5 gap-0 lg:items-start items-center"
           >
             <p className="white 2xl:text-4xl text-2xl">👋 Hello, I'm</p>
-            <p
-              className="white 2xl:text-8xl text-4xl"
-              style={{
-                textShadow:
-                  "-0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000",
-              }}
-            >
+            <p className="white 2xl:text-8xl text-4xl">
               <b>Kooper Propp</b>
             </p>
             <LetterPullup
               className="text-white 2xl:text-4xl text-2xl font-normal"
-              words="Software Engineer / Web Developer"
+              words="Full-stack Software Engineer"
             />
+            <div className="flex flex-row gap-3">
+              <Tooltip label="GitHub">
+                <a href="https://github.com/Kooperlol" target="_blank">
+                  <IconButton
+                    padding={"5px"}
+                    aria-label="github"
+                    icon={
+                      <svg
+                        role="img"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <title>GitHub</title>
+                        <path
+                          fill="#1463F3"
+                          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                        />
+                      </svg>
+                    }
+                  />
+                </a>
+              </Tooltip>
+              <Tooltip label="LinkedIn">
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/kooper-propp-ab42a0284/"
+                >
+                  <IconButton
+                    padding={"5px"}
+                    aria-label="linkedin"
+                    icon={
+                      <svg
+                        role="img"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <title>LinkedIn</title>
+                        <path
+                          fill="#1463F3"
+                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                        />
+                      </svg>
+                    }
+                  />
+                </a>
+              </Tooltip>
+              <Tooltip label="Resume">
+                <a href="/Resume.docx.pdf" target="_blank">
+                  <IconButton
+                    aria-label="Resume"
+                    icon={<HiMiniDocumentText fill="#1463F3" size={"fill"} />}
+                  />
+                </a>
+              </Tooltip>
+            </div>
           </div>
           <Image
             priority
@@ -150,49 +199,14 @@ export default function Home() {
         {/* About */}
         <div
           id="about"
-          className="relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center items-center justify-center py-8 gap-10 2xl:px-0 px-6"
+          className="p-10 flex flex-col text-lg text-black gap-3 items-center justify-center"
         >
-          <Image
-            className="rounded-full lg:w-1/3 w-1/2"
-            src={aboutimage}
-            alt="Picture of Kooper"
-            loading="lazy"
-            draggable={false}
-            placeholder="blur"
-            width={407}
-            height={612}
-          />
-          <div className="flex flex-col gap-5">
-            <p className="text-black text-4xl font-bold">Who am I?</p>
-            <div className="flex flex-col gap-3">
-              <p className="text-black text-2xl">
-                Hello! I'm Kooper, a developer based in{" "}
-                <Tooltip label="Home to Janesville and Beloit, with a mix of urban areas, natural beauty like the Rock River, and over 250 miles of trails for outdoor enthusiasts.">
-                  <span className="text-main font-bold">Rock County, WI</span>
-                </Tooltip>{" "}
-                who's experienced in taking fullstack applications from scratch
-                to production.
-              </p>
-              <p className="text-black text-2xl">
-                I'm currently a computer science student at{" "}
-                <Tooltip label="A private, accredited university with over 200 online & on-campus programs. Known for affordability and focus on career-oriented degrees.">
-                  <span className="text-main font-bold">
-                    Southern New Hampshire University
-                  </span>
-                </Tooltip>
-                .
-              </p>
-              <p className="text-black text-2xl">
-                I'm passionate about creating projects and{" "}
-                <span className="text-main font-bold">
-                  learning new technologies
-                </span>
-                . I'm always looking for new opportunities to{" "}
-                <span className="text-main font-bold">collaborate</span> and{" "}
-                create something amazing.
-              </p>
-            </div>
-          </div>
+          <p className="text-4xl font-bold">About</p>
+          <p>📍 Age: 18</p>
+          <p>👨‍💻 Grade: College senior</p>
+          <p>💻 Major: Computer Science</p>
+          <p>🌍 Location: Edgerton, WI</p>
+          <p>🎓 University: Southern New Hampshire University</p>
         </div>
         {/* Technologies */}
         <div
@@ -202,8 +216,8 @@ export default function Home() {
           <p className="text-center text-black text-4xl font-bold">
             Technologies
           </p>
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <Box width={"500px"} height={"500px"}>
+          <div className="flex flex-col md:flex-row items-center gap-12 justify-center">
+            <Box className="w-5/6 lg:w-1/3">
               <IconCloud
                 iconSlugs={
                   portfolioJSON.technologies?.map((skill) =>
