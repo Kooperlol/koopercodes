@@ -37,12 +37,17 @@ export default class ProjectCard extends React.Component<IProjectCardProps> {
             height={300}
           />
           <Stack mt="6" spacing="3" className="h-56">
-            <Heading size="md" className="text-main font-bold">
+            <Heading
+              size="md"
+              className="text-main font-bold text-center md:text-left"
+            >
               {this.props.name}
             </Heading>
-            <Text>{this.props.description}</Text>
+            <Text className="text-center md:text-left">
+              {this.props.description}
+            </Text>
             <div className="w-full max-w-[900px] mx-auto">
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                 {this.props.tech.map((tech, index) => (
                   <Text
                     key={index}
@@ -56,7 +61,7 @@ export default class ProjectCard extends React.Component<IProjectCardProps> {
             </div>
           </Stack>
         </CardBody>
-        <CardFooter className="flex flex-row">
+        <CardFooter className="flex flex-row justify-center md:justify-start">
           <Link href={this.props.url} target="_blank">
             <ShimmerButton>View</ShimmerButton>
           </Link>

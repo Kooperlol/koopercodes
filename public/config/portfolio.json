@@ -12,7 +12,7 @@
       "image": "https://github.com/Kooperlol/nexadb/blob/main/public/media/logo.png?raw=true",
       "description": "Built a website for a database company to streamline applicant management.",
       "url": "https://nexadb.vercel.app/en",
-      "tech": ["Next.JS", "Tailwind", "Firebase", "MongoDB", "Prisma"]
+      "tech": ["Next.JS", "Tailwind", "Firebase", "Prisma"]
     },
     {
       "name": "MHS Laude",
