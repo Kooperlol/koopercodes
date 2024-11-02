@@ -10,6 +10,7 @@ const AnimatedNumber = dynamic(() => import("react-animated-numbers"), {
 import axios from "axios";
 import { compareHamsterRunToStates } from "@/utils/state-compare";
 import DailyRotations from "@/components/hamster/daily";
+import Iphone15Pro from "@/components/ui/iphone-15-pro";
 
 const HamsterPage = () => {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -95,7 +96,7 @@ const HamsterPage = () => {
         >
           <div className="scroll" />
         </div>
-        <div className="flex flex-col items-center justify-center h-screen p-8 lg:p-0">
+        <div className="flex flex-col items-center justify-center min-h-screen p-8 lg:p-0">
           <div className="gap-4 w-full h-full items-center flex flex-col lg:flex-row justify-center lg:justify-between lg:px-32 z-10">
             <div
               id="header"
@@ -103,7 +104,7 @@ const HamsterPage = () => {
             >
               <div
                 ref={headerRef}
-                className="flex flex-col gap-4 text-center lg:text-left"
+                className="flex flex-col gap-4 text-center lg:text-left py-64"
               >
                 <h1 className="lg:text-9xl text-7xl relative">
                   Meet <b>Bear</b>🐻,
@@ -118,6 +119,7 @@ const HamsterPage = () => {
             </div>
 
             <motion.div
+              className="hidden md:block"
               animate={{
                 y: [20, -20, 20],
               }}
@@ -141,13 +143,14 @@ const HamsterPage = () => {
           </div>
         </div>
       </div>
+
       <div
-        className="py-32 flex items-center justify-center"
+        className="py-16 lg:py-32 flex flex-col-reverse lg:flex-row items-center justify-evenly"
         style={{
           background: "#ADD8E6",
         }}
       >
-        <div className="flex flex-col lg:flex-row gap-5 items-center justify-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-5 items-center justify-center">
           <Card
             className="card-with-filter"
             style={
@@ -264,6 +267,11 @@ const HamsterPage = () => {
               </Skeleton>
             </div>
           </Card>
+        </div>
+        <div className=" flex items-center justify-center py-8 h-1/2">
+          <div className="relative">
+            <Iphone15Pro className="size-full" videoSrc="/videos/hamster.mp4" />
+          </div>
         </div>
       </div>
       <div
