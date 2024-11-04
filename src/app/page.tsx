@@ -169,7 +169,7 @@ export default function Home() {
                 </a>
               </Tooltip>
               <Tooltip label="Resume">
-                <a href="/Resume.docx.pdf" target="_blank">
+                <a href="/Resume.pdf" target="_blank">
                   <IconButton
                     aria-label="Resume"
                     icon={<HiMiniDocumentText fill="#1463F3" size={"fill"} />}
