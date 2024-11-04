@@ -202,7 +202,6 @@ export default function Home() {
           className="p-10 flex flex-col text-lg text-black text-center gap-3 items-center justify-center"
         >
           <p className="text-4xl font-bold">About</p>
-          <p>📍 Age: 18</p>
           <p>👨‍💻 Grade: College senior</p>
           <p>💻 Major: Computer Science</p>
           <p>🌍 Location: Edgerton, WI</p>
