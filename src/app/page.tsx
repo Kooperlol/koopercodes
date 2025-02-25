@@ -120,7 +120,7 @@ export default function Home() {
             </p>
             <LetterPullup
               className="text-white 2xl:text-4xl text-2xl font-normal"
-              words="Full-stack Software Engineer"
+              words="Computer Science Student"
             />
             <div className="flex flex-row gap-3">
               <Tooltip label="GitHub">
