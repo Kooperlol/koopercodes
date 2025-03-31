@@ -99,7 +99,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-white 2xl:text-9xl text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+              className="text-white 2xl:text-9xl text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 max-w-full break-words"
             >
               Kooper Propp
             </motion.p>
@@ -107,9 +107,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
+              className="max-w-full px-4"
             >
               <LetterPullup
-                className="text-gray-300 2xl:text-4xl text-2xl font-normal"
+                className="text-gray-300 2xl:text-4xl text-xl font-normal break-words"
                 words="Computer Science Student & Developer"
               />
             </motion.div>
@@ -307,23 +308,25 @@ export default function Home() {
             {/* Website Developer */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
             >
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-full md:w-1/3">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/lakeview.png"
                     alt="Lakeview Campground Logo"
                     width={200}
                     height={200}
-                    className="rounded-lg"
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
                   />
                 </div>
                 <div className="w-full md:w-2/3">
-                  <h3 className="text-2xl font-bold text-white">Website Developer</h3>
-                  <p className="text-xl text-blue-400">Lakeview Campground & Bar</p>
-                  <p className="text-gray-400">August 2024 - Present</p>
-                  <ul className="mt-4 space-y-2">
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-bold text-white">Website Developer</h3>
+                    <p className="text-sm md:text-base text-blue-400">Lakeview Campground & Bar</p>
+                    <p className="text-sm md:text-base text-gray-400">August 2024 - Present</p>
+                  </div>
+                  <ul className="mt-4 space-y-2 text-left">
                     {[
                       "Developed a high-performance Next.js website with headless WordPress CMS",
                       "Increased user engagement by 20% through real-time updates via WordPress REST API",
@@ -335,7 +338,7 @@ export default function Home() {
                         className="flex items-start text-gray-300"
                       >
                         <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
-                        <span>{achievement}</span>
+                        <span className="text-sm md:text-base">{achievement}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -346,23 +349,25 @@ export default function Home() {
             {/* IT Office Associate */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
             >
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-full md:w-1/3">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/mhs.png"
                     alt="Milton High School Logo"
                     width={200}
                     height={200}
-                    className="rounded-lg"
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
                   />
                 </div>
                 <div className="w-full md:w-2/3">
-                  <h3 className="text-2xl font-bold text-white">IT Office Associate</h3>
-                  <p className="text-xl text-blue-400">Milton High School</p>
-                  <p className="text-gray-400">March 2024 - September 2024</p>
-                  <ul className="mt-4 space-y-2">
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-bold text-white">IT Office Associate</h3>
+                    <p className="text-sm md:text-base text-blue-400">Milton High School</p>
+                    <p className="text-sm md:text-base text-gray-400">March 2024 - September 2024</p>
+                  </div>
+                  <ul className="mt-4 space-y-2 text-left">
                     {[
                       "Developed Skymaker, a Java automation tool for student data entry",
                       "Enhanced data accuracy by 40% with real-time validation systems",
@@ -374,7 +379,7 @@ export default function Home() {
                         className="flex items-start text-gray-300"
                       >
                         <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
-                        <span>{achievement}</span>
+                        <span className="text-sm md:text-base">{achievement}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -385,23 +390,25 @@ export default function Home() {
             {/* Minecraft Development */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
             >
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-full md:w-1/3">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/oresmash.jpg"
                     alt="Minecraft Development"
                     width={200}
                     height={200}
-                    className="rounded-lg"
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
                   />
                 </div>
                 <div className="w-full md:w-2/3">
-                  <h3 className="text-2xl font-bold text-white">Minecraft Server Development</h3>
-                  <p className="text-xl text-blue-400">Full-Stack Game Development</p>
-                  <p className="text-gray-400">2020 - Present</p>
-                  <ul className="mt-4 space-y-2">
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-bold text-white">Minecraft Server Development</h3>
+                    <p className="text-sm md:text-base text-blue-400">Full-Stack Game Development</p>
+                    <p className="text-sm md:text-base text-gray-400">2020 - Present</p>
+                  </div>
+                  <ul className="mt-4 space-y-2 text-left">
                     {[
                       "Owner of Oresmash (2024-Present): Designed competitive systems supporting 150+ concurrent players with custom plugins and optimized performance",
                       "Owner of Quarry (2020-2025): Developed OP Prison server with custom mechanics, economy systems, and player progression",
@@ -414,7 +421,7 @@ export default function Home() {
                         className="flex items-start text-gray-300"
                       >
                         <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
-                        <span>{achievement}</span>
+                        <span className="text-sm md:text-base">{achievement}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -449,30 +456,34 @@ export default function Home() {
             {/* Nexa Database */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
             >
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-full md:w-1/3">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/nexa.png"
                     alt="Nexa Database Project"
                     width={200}
                     height={200}
-                    className="rounded-lg"
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
                   />
                 </div>
                 <div className="w-full md:w-2/3">
-                  <a 
-                    href="https://github.com/Kooperlol/nexadb"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group"
-                  >
-                    <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Nexa Database</h3>
-                    <p className="text-blue-400">Next.js, TypeScript, Prisma, MongoDB, Chakra UI</p>
-                    <p className="mt-2 text-gray-300">Careers page for a fictional database company</p>
-                    <p className="text-blue-400 mt-2">4th place in FBLA Website Coding Competition</p>
-                  </a>
+                  <div className="text-center md:text-left">
+                    <a 
+                      href="https://github.com/Kooperlol/nexadb"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Nexa Database</h3>
+                      <p className="text-sm md:text-base text-blue-400">Next.js, TypeScript, Prisma, MongoDB, Chakra UI</p>
+                    </a>
+                  </div>
+                  <div className="mt-2 text-left">
+                    <p className="text-sm md:text-base text-gray-300">Careers page for a fictional database company</p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">4th place in FBLA Website Coding Competition</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -480,30 +491,34 @@ export default function Home() {
             {/* MHS Laude System */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
             >
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-full md:w-1/3">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/laude.png"
                     alt="MHS Laude System"
                     width={200}
                     height={200}
-                    className="rounded-lg"
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
                   />
                 </div>
                 <div className="w-full md:w-2/3">
-                  <a 
-                    href="https://github.com/Kooperlol/mhslaude"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group"
-                  >
-                    <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">MHS Laude System</h3>
-                    <p className="text-blue-400">Next.js, TypeScript, Python, Chakra UI, Vercel</p>
-                    <p className="mt-2 text-gray-300">Automated transcript processing and laude distinction calculator</p>
-                    <p className="text-blue-400 mt-2">Used at Milton High School, saving 25+ hours of manual work</p>
-                  </a>
+                  <div className="text-center md:text-left">
+                    <a 
+                      href="https://github.com/Kooperlol/mhslaude"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">MHS Laude System</h3>
+                      <p className="text-sm md:text-base text-blue-400">Next.js, TypeScript, Python, Chakra UI, Vercel</p>
+                    </a>
+                  </div>
+                  <div className="mt-2 text-left">
+                    <p className="text-sm md:text-base text-gray-300">Automated transcript processing and laude distinction calculator</p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">Used at Milton High School, saving 25+ hours of manual work</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -511,30 +526,34 @@ export default function Home() {
             {/* Milton Relay */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
             >
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-full md:w-1/3">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/relay.png"
                     alt="Milton Relay App"
                     width={200}
                     height={200}
-                    className="rounded-lg"
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
                   />
                 </div>
                 <div className="w-full md:w-2/3">
-                  <a 
-                    href="https://github.com/Kooperlol/milton_relay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group"
-                  >
-                    <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Milton Relay</h3>
-                    <p className="text-blue-400">Flutter, Dart, Firebase</p>
-                    <p className="mt-2 text-gray-300">Real-time school communication app</p>
-                    <p className="text-blue-400 mt-2">1st place in Wisconsin and 4th nationally in FBLA Mobile App Competition</p>
-                  </a>
+                  <div className="text-center md:text-left">
+                    <a 
+                      href="https://github.com/Kooperlol/milton_relay"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Milton Relay</h3>
+                      <p className="text-sm md:text-base text-blue-400">Flutter, Dart, Firebase</p>
+                    </a>
+                  </div>
+                  <div className="mt-2 text-left">
+                    <p className="text-sm md:text-base text-gray-300">Real-time school communication app</p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">1st place in Wisconsin and 4th nationally in FBLA Mobile App Competition</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -542,22 +561,24 @@ export default function Home() {
             {/* Minecraft Projects */}
             <motion.div
               variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
             >
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-full md:w-1/3">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/minecraft-projects.png"
                     alt="Minecraft Development Projects"
                     width={200}
                     height={200}
-                    className="rounded-lg"
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
                   />
                 </div>
                 <div className="w-full md:w-2/3">
-                  <h3 className="text-2xl font-bold text-white">Minecraft Development Projects</h3>
-                  <p className="text-blue-400">Open Source Contributions & Tools</p>
-                  <ul className="mt-4 space-y-4">
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-bold text-white">Minecraft Development Projects</h3>
+                    <p className="text-sm md:text-base text-blue-400">Open Source Contributions & Tools</p>
+                  </div>
+                  <ul className="mt-4 space-y-4 text-left">
                     {[
                       {
                         title: "Chroma",
@@ -585,9 +606,9 @@ export default function Home() {
                         >
                           <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
                           <div>
-                            <span className="font-semibold group-hover:text-blue-400">{project.title}</span>
-                            <p className="text-sm text-gray-400 mt-1">{project.description}</p>
-                            <p className="text-sm text-blue-400 mt-1">{project.metrics}</p>
+                            <span className="font-semibold group-hover:text-blue-400 text-sm md:text-base">{project.title}</span>
+                            <p className="text-xs md:text-sm text-gray-400 mt-1">{project.description}</p>
+                            <p className="text-xs md:text-sm text-blue-400 mt-1">{project.metrics}</p>
                           </div>
                         </a>
                       </motion.li>
