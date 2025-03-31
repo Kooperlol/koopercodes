@@ -4,7 +4,6 @@ import "./globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import Footer from "@/components/footer";
 import GoogleCaptchaProvider from "./providers/captcha-provider";
-import Header from "@/components/header";
 import { Analytics } from "@vercel/analytics/react";
 
 const poppins = Poppins({
@@ -30,7 +29,6 @@ export default function RootLayout({
       <body className={`${poppins.className} text-white`}>
         <Analytics />
         <ChakraProvider>
-          <Header />
           <GoogleCaptchaProvider>{children}</GoogleCaptchaProvider>
           <Footer />
         </ChakraProvider>
