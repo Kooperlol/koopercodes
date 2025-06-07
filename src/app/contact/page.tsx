@@ -195,7 +195,7 @@ const ContactPage = () => {
                   placeholder="First Name"
                   bg={"gray.700/50"}
                   border={0}
-                  color={"white"}
+                  color={"black"}
                   _placeholder={{
                     color: "gray.400",
                   }}
@@ -212,7 +212,7 @@ const ContactPage = () => {
                   placeholder="Last Name"
                   bg={"gray.700/50"}
                   border={0}
-                  color={"white"}
+                  color={"black"}
                   _placeholder={{
                     color: "gray.400",
                   }}
@@ -230,7 +230,7 @@ const ContactPage = () => {
                   bg={"gray.700/50"}
                   border={0}
                   type="email"
-                  color={"white"}
+                  color={"black"}
                   _placeholder={{
                     color: "gray.400",
                   }}
@@ -247,7 +247,7 @@ const ContactPage = () => {
                   placeholder="Message"
                   bg={"gray.700/50"}
                   border={0}
-                  color={"white"}
+                  color={"black"}
                   _placeholder={{
                     color: "gray.400",
                   }}

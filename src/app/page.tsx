@@ -5,10 +5,9 @@ import KooperParticles from "@/components/particles";
 import { useRouter } from "next/navigation";
 import kooperimage from "@/../public/images/kooper.webp";
 import { HiAcademicCap, HiBriefcase, HiQrCode, HiCog } from "react-icons/hi2";
-import { IconButton, Tooltip, Button } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { MdCheckCircle } from "react-icons/md";
 import LetterPullup from "@/components/ui/letter-pullup";
-import PulsatingButton from "@/components/ui/pulsating-button";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 
@@ -101,7 +100,7 @@ export default function Home() {
               transition={{ delay: 0.6 }}
               className="text-white 2xl:text-9xl text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 max-w-full break-words"
             >
-              Kooper Propp
+              Kooper
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -242,42 +241,17 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="w-full md:w-1/3">
                 <Image
-                  src="/images/snhu.png"
-                  alt="SNHU Logo"
+                  src="/images/UWL.png"
+                  alt="UWL Logo"
                   width={200}
                   height={200}
                   className="rounded-lg"
                 />
               </div>
               <div className="w-full md:w-2/3">
-                <h3 className="text-2xl font-bold mb-2 text-white">Southern New Hampshire University</h3>
+                <h3 className="text-2xl font-bold mb-2 text-white">University of Wisconsin - La Crosse</h3>
                 <p className="text-xl mb-4 text-blue-400">Bachelor of Science in Computer Science</p>
-                <p className="text-gray-400 mb-4">Expected Graduation: October 2025</p>
-                <p className="text-gray-400 mb-4">GPA: 3.8</p>
-                <div>
-                  <p className="font-semibold mb-2 text-white">Relevant Coursework:</p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {[
-                      "Software Development Lifecycle",
-                      "Software Security",
-                      "Operating Platforms",
-                      "Programming Languages",
-                      "Java OOP",
-                      "Python",
-                      "Web Development",
-                      "Data Structures & Algorithms"
-                    ].map((course, index) => (
-                      <motion.p
-                        key={index}
-                        variants={fadeInUp}
-                        className="text-gray-300 flex items-center gap-2"
-                      >
-                        <MdCheckCircle className="text-blue-400 text-xl flex-shrink-0" />
-                        {course}
-                      </motion.p>
-                    ))}
-                  </div>
-                </div>
+                <p className="text-gray-400 mb-4">Incoming Transfer Student</p>
               </div>
             </div>
           </motion.div>
