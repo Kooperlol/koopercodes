@@ -116,8 +116,8 @@ export default function Home() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="flex flex-row gap-4 mt-6"
+              transition={{ delay: 1.2 }}
+              className="flex flex-row gap-4 mt-4"
             >
               <Button
                 onClick={() => router.push("/contact")}
@@ -125,19 +125,6 @@ export default function Home() {
               >
                 Get in Touch
               </Button>
-              <Button
-                onClick={() => window.open("/Resume.pdf", "_blank")}
-                className="bg-gray-800/50 hover:bg-gray-700/50 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20 border border-gray-700/50"
-              >
-                View Resume
-              </Button>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 }}
-              className="flex flex-row gap-4 mt-4"
-            >
               <Button
                 onClick={() => window.open("https://github.com/Kooperlol", "_blank")}
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
@@ -675,12 +662,6 @@ export default function Home() {
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
               >
                 Send Message
-              </Button>
-              <Button
-                onClick={() => window.open("/Resume.pdf", "_blank")}
-                className="bg-gray-800/50 hover:bg-gray-700/50 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20 border border-gray-700/50"
-              >
-                Download Resume
               </Button>
             </div>
           </div>
