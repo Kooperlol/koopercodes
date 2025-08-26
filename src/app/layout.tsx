@@ -16,7 +16,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Kooper Codes",
   description:
-    "A passionate software engineer and web developer specializing in creating innovative, high-performance applications and websites.",
+    "A passionate computer science student specializing in creating innovative, high-performance applications and websites.",
 };
 
 export default function RootLayout({

@@ -17,9 +17,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-              Kooper
+              Kooper Codes
             </span>
-          </div>
+          </div>  
           <div className="hidden md:flex items-center space-x-8">
             <a href="/#about" className="text-gray-300 hover:text-blue-400 transition-colors">About</a>
             <a href="/#education" className="text-gray-300 hover:text-blue-400 transition-colors">Education</a>

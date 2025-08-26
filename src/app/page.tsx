@@ -92,7 +92,7 @@ export default function Home() {
               transition={{ delay: 0.4 }}
               className="text-blue-400 2xl:text-4xl text-2xl font-light tracking-wider"
             >
-              👋 Hello, I'm
+              Hello, I'm
             </motion.p>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -110,7 +110,7 @@ export default function Home() {
             >
               <LetterPullup
                 className="text-gray-300 2xl:text-4xl text-xl font-normal break-words"
-                words="Computer Science Student & Developer"
+                words="Computer Science Student"
               />
             </motion.div>
             <motion.div 
@@ -176,7 +176,7 @@ export default function Home() {
                 transitionTimingFunction: "cubic-bezier(0.17, 0.55, 0.55, 1)",
               }}
               src={kooperimage}
-              alt="Picture of Kooper"
+              alt="Portrait of Kooper Propp"
               draggable={false}
               width={500}
               height={500}
@@ -197,9 +197,7 @@ export default function Home() {
             About Me
           </h2>
           <p className="max-w-2xl text-gray-300 leading-relaxed">
-            I'm a passionate Computer Science student and developer with expertise in web development, 
-            Java/Minecraft development, and automation. I love creating efficient solutions and 
-            building engaging applications that make a difference.
+          I’m a dedicated Computer Science student with a passion for building efficient, scalable, and user-focused applications. My expertise spans full-stack web development, software design, and creating systems that solve real-world problems.
           </p>
         </motion.div>
 
@@ -229,16 +227,16 @@ export default function Home() {
               <div className="w-full md:w-1/3">
                 <Image
                   src="/images/UWL.png"
-                  alt="UWL Logo"
+                  alt="University of Wisconsin-La Crosse Logo"
                   width={200}
                   height={200}
                   className="rounded-lg"
                 />
               </div>
               <div className="w-full md:w-2/3">
-                <h3 className="text-2xl font-bold mb-2 text-white">University of Wisconsin - La Crosse</h3>
-                <p className="text-xl mb-4 text-blue-400">Bachelor of Science in Computer Science</p>
-                <p className="text-gray-400 mb-4">Incoming Transfer Student</p>
+                <h3 className="text-2xl font-bold mb-2 text-white">University of Wisconsin-La Crosse</h3>
+                <p className="text-xl mb-4 text-blue-400">Bachelor of Science in Computer Science — AI Concentration, Business Administration Minor</p>
+                <p className="text-gray-400 mb-4">Expected Graduation: Spring 2028</p>
               </div>
             </div>
           </motion.div>
@@ -256,7 +254,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <HiBriefcase className="text-4xl text-blue-400" />
             <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-              Experience
+              Professional Experience
             </h2>
           </div>
           <motion.div
@@ -266,7 +264,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-4xl w-full space-y-8"
           >
-            {/* Website Developer */}
+            {/* Software Engineer Intern */}
             <motion.div
               variants={fadeInUp}
               className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
@@ -275,7 +273,7 @@ export default function Home() {
                 <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/lakeview.png"
-                    alt="Lakeview Campground Logo"
+                    alt="Pettit's Lakeview Campground & Bar Logo"
                     width={200}
                     height={200}
                     className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
@@ -283,98 +281,15 @@ export default function Home() {
                 </div>
                 <div className="w-full md:w-2/3">
                   <div className="text-center md:text-left">
-                    <h3 className="text-xl md:text-2xl font-bold text-white">Website Developer</h3>
-                    <p className="text-sm md:text-base text-blue-400">Lakeview Campground & Bar</p>
-                    <p className="text-sm md:text-base text-gray-400">August 2024 - Present</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-white">Software Engineer Intern</h3>
+                    <p className="text-sm md:text-base text-blue-400">Pettit's Lakeview Campground & Bar</p>
+                    <p className="text-sm md:text-base text-gray-400">June 2025 - August 2025</p>
                   </div>
                   <ul className="mt-4 space-y-2 text-left">
                     {[
-                      "Developed a high-performance Next.js website with headless WordPress CMS",
-                      "Increased user engagement by 20% through real-time updates via WordPress REST API",
-                      "Optimized for 5,000+ monthly visitors using lazy loading, API response caching, and image compression"
-                    ].map((achievement, index) => (
-                      <motion.li
-                        key={index}
-                        variants={fadeInUp}
-                        className="flex items-start text-gray-300"
-                      >
-                        <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
-                        <span className="text-sm md:text-base">{achievement}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* IT Office Associate */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-                <div className="w-full md:w-1/3 flex justify-center">
-                  <Image
-                    src="/images/mhs.png"
-                    alt="Milton High School Logo"
-                    width={200}
-                    height={200}
-                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
-                  />
-                </div>
-                <div className="w-full md:w-2/3">
-                  <div className="text-center md:text-left">
-                    <h3 className="text-xl md:text-2xl font-bold text-white">IT Office Associate</h3>
-                    <p className="text-sm md:text-base text-blue-400">Milton High School</p>
-                    <p className="text-sm md:text-base text-gray-400">March 2024 - September 2024</p>
-                  </div>
-                  <ul className="mt-4 space-y-2 text-left">
-                    {[
-                      "Developed Skymaker, a Java automation tool for student data entry",
-                      "Enhanced data accuracy by 40% with real-time validation systems",
-                      "Eliminated 100+ hours of manual work annually"
-                    ].map((achievement, index) => (
-                      <motion.li
-                        key={index}
-                        variants={fadeInUp}
-                        className="flex items-start text-gray-300"
-                      >
-                        <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
-                        <span className="text-sm md:text-base">{achievement}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Minecraft Development */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-                <div className="w-full md:w-1/3 flex justify-center">
-                  <Image
-                    src="/images/oresmash.jpg"
-                    alt="Minecraft Development"
-                    width={200}
-                    height={200}
-                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
-                  />
-                </div>
-                <div className="w-full md:w-2/3">
-                  <div className="text-center md:text-left">
-                    <h3 className="text-xl md:text-2xl font-bold text-white">Minecraft Server Development</h3>
-                    <p className="text-sm md:text-base text-blue-400">Full-Stack Game Development</p>
-                    <p className="text-sm md:text-base text-gray-400">2020 - Present</p>
-                  </div>
-                  <ul className="mt-4 space-y-2 text-left">
-                    {[
-                      "Owner of Oresmash (2024-Present): Designed competitive systems supporting 150+ concurrent players with custom plugins and optimized performance",
-                      "Owner of Quarry (2020-2025): Developed OP Prison server with custom mechanics, economy systems, and player progression",
-                      "Developer at LeoneMC (2023): Created multi-server PVP practice environment with custom matchmaking and ranking systems",
-                      "Custom Plugin Development: Created 20+ plugins handling player data, economy, and game mechanics",
+                      "Developed a high-performance Next.js website with headless WordPress integration, resulting in a 20% increase in user engagement and supporting 5,000+ monthly visitors.",
+                      "Designed and implemented a QR-code based inventory management system for tracking sauce batches, containers, and shelf life to optimize restaurant operations.",
+                      "Built a comprehensive recipe management website for kitchen staff to efficiently track recipes and ingredient requirements.",
                     ].map((achievement, index) => (
                       <motion.li
                         key={index}
@@ -404,7 +319,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <HiQrCode className="text-4xl text-blue-400" />
             <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-              Projects
+              Featured Projects
             </h2>
           </div>
           <motion.div
@@ -423,7 +338,7 @@ export default function Home() {
                 <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/nexa.png"
-                    alt="Nexa Database Project"
+                    alt="Nexa Database Project Screenshot"
                     width={200}
                     height={200}
                     className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
@@ -442,8 +357,8 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="mt-2 text-left">
-                    <p className="text-sm md:text-base text-gray-300">Careers page for a fictional database company</p>
-                    <p className="text-sm md:text-base text-blue-400 mt-2">4th place in FBLA Website Coding Competition</p>
+                    <p className="text-sm md:text-base text-gray-300">A fully featured careers platform for a fictional database company, built with modern full-stack technologies. Designed to showcase industry-level practices in scalability, responsive design, and seamless user experience.</p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">Earned 1st place in Wisconsin and 4th place nationally in the FBLA Website Coding & Development competition.</p>
                   </div>
                 </div>
               </div>
@@ -458,7 +373,7 @@ export default function Home() {
                 <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/laude.png"
-                    alt="MHS Laude System"
+                    alt="MHS Laude System Screenshot"
                     width={200}
                     height={200}
                     className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
@@ -473,12 +388,12 @@ export default function Home() {
                       className="group"
                     >
                       <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">MHS Laude System</h3>
-                      <p className="text-sm md:text-base text-blue-400">Next.js, TypeScript, Python, Chakra UI, Vercel</p>
+                      <p className="text-sm md:text-base text-blue-400">Next.js, TypeScript, Python, Chakra UI</p>
                     </a>
                   </div>
                   <div className="mt-2 text-left">
-                    <p className="text-sm md:text-base text-gray-300">Automated transcript processing and laude distinction calculator</p>
-                    <p className="text-sm md:text-base text-blue-400 mt-2">Used at Milton High School, saving 25+ hours of manual work</p>
+                    <p className="text-sm md:text-base text-gray-300">An automated transcript processing and academic distinction tracking platform tailored for high schools. The system calculates laude standings, GPA, and progression insights, giving students and administrators an intuitive way to track academic performance.</p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">Deployed at Milton High School, where it actively supports hundreds of students in monitoring their academic success in real time.</p>
                   </div>
                 </div>
               </div>
@@ -493,7 +408,7 @@ export default function Home() {
                 <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/relay.png"
-                    alt="Milton Relay App"
+                    alt="Milton Relay App Screenshot"
                     width={200}
                     height={200}
                     className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
@@ -512,14 +427,14 @@ export default function Home() {
                     </a>
                   </div>
                   <div className="mt-2 text-left">
-                    <p className="text-sm md:text-base text-gray-300">Real-time school communication app</p>
-                    <p className="text-sm md:text-base text-blue-400 mt-2">1st place in Wisconsin and 4th nationally in FBLA Mobile App Competition</p>
+                    <p className="text-sm md:text-base text-gray-300">A cross-platform real-time communication app for schools, enabling seamless announcements, messaging, and collaboration between staff and students. Developed with a focus on reliability and accessibility for educational environments.</p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">Won 1st place in Wisconsin and 4th place nationally in the FBLA Mobile App Development competition.</p>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Minecraft Projects */}
+            {/* Minecraft Development Projects */}
             <motion.div
               variants={fadeInUp}
               className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
@@ -528,7 +443,7 @@ export default function Home() {
                 <div className="w-full md:w-1/3 flex justify-center">
                   <Image
                     src="/images/minecraft-projects.png"
-                    alt="Minecraft Development Projects"
+                    alt="Minecraft Development Projects Screenshot"
                     width={200}
                     height={200}
                     className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
@@ -537,21 +452,19 @@ export default function Home() {
                 <div className="w-full md:w-2/3">
                   <div className="text-center md:text-left">
                     <h3 className="text-xl md:text-2xl font-bold text-white">Minecraft Development Projects</h3>
-                    <p className="text-sm md:text-base text-blue-400">Open Source Contributions & Tools</p>
+                    <p className="text-sm md:text-base text-blue-400">Innovative tools and frameworks created to expand the Minecraft development ecosystem, combining performance optimization with custom feature support.</p>
                   </div>
                   <ul className="mt-4 space-y-4 text-left">
                     {[
                       {
                         title: "Chroma",
-                        description: "Custom Paper fork allowing developers to create custom client-sided features",
+                        description: "A custom Paper fork that unlocks new client-side features and optimizations, powering my server 'Quarry' with 50+ concurrent players.",
                         link: "https://github.com/Kooperlol/Chroma",
-                        metrics: "Implemented for my server, Quarry, with 50+ players"
                       },
                       {
                         title: "Blockify",
-                        description: "Public library used for client-sided block management, featuring advanced caching and optimization",
+                        description: "A comprehensive library for client-side block management with advanced caching and performance tuning, built to scale for hundreds of players per instance.",
                         link: "https://github.com/Kooperlol/Blockify",
-                        metrics: "Supports hundreds of players on a single instance"
                       }
                     ].map((project, index) => (
                       <motion.li
@@ -569,7 +482,6 @@ export default function Home() {
                           <div>
                             <span className="font-semibold group-hover:text-blue-400 text-sm md:text-base">{project.title}</span>
                             <p className="text-xs md:text-sm text-gray-400 mt-1">{project.description}</p>
-                            <p className="text-xs md:text-sm text-blue-400 mt-1">{project.metrics}</p>
                           </div>
                         </a>
                       </motion.li>
@@ -606,31 +518,22 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
-                  title: "Languages",
-                  skills: "Java, Kotlin, JavaScript/TypeScript, Dart, Python, C++, HTML, CSS"
+                  title: "Programming Languages",
+                  skills: "Java, Kotlin, JavaScript/TypeScript, Dart, Python"
                 },
                 {
-                  title: "Frameworks",
-                  skills: "React, Node.js, Next.js, Flask, JUnit, WordPress, Flutter, Spigot, Paper"
+                  title: "Frameworks & Libraries",
+                  skills: "React, Next.js, Flask, Flutter"
                 },
                 {
-                  title: "Databases",
+                  title: "Databases & Storage",
                   skills: "Firebase, MongoDB, SQL, FileMaker"
                 },
-                {
-                  title: "Developer Tools",
-                  skills: "Git, Vercel, GCP, VS Code, IntelliJ, Eclipse"
-                },
-                {
-                  title: "Concepts",
-                  skills: "OOP, Web Applications, API Development",
-                  fullWidth: true
-                }
               ].map((category, index) => (
                 <motion.div
                   key={index}
                   variants={fadeInUp}
-                  className={`${category.fullWidth ? 'md:col-span-2' : ''}`}
+                  className={`md:col-span-2`}
                 >
                   <h3 className="text-xl font-bold mb-3 text-white">{category.title}</h3>
                   <p className="text-gray-300">{category.skills}</p>
@@ -640,7 +543,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Updated Contact Section */}
+        {/* Contact Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -651,10 +554,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-3xl" />
           <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-12">
             <h2 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-6 leading-relaxed">
-              Let's get in touch!
+              Let's Connect
             </h2>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+              I am always interested in discussing new projects, innovative ideas, or opportunities to contribute to your vision. Feel free to reach out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
