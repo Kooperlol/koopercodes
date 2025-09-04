@@ -117,7 +117,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
-              className="flex flex-row gap-4 mt-4"
+              className="flex flex-col md:flex-row gap-4 mt-4"
             >
               <Button
                 onClick={() => router.push("/contact")}
@@ -235,7 +235,7 @@ export default function Home() {
               </div>
               <div className="w-full md:w-2/3">
                 <h3 className="text-2xl font-bold mb-2 text-white">University of Wisconsin-La Crosse</h3>
-                <p className="text-xl mb-4 text-blue-400">Bachelor of Science in Computer Science — AI Concentration, Business Administration Minor</p>
+                <p className="text-xl mb-4 text-blue-400">Bachelor of Science in Computer Science — AI Concentration, Mathematics Minor</p>
                 <p className="text-gray-400 mb-4">Expected Graduation: Spring 2028</p>
               </div>
             </div>
@@ -523,7 +523,7 @@ export default function Home() {
                 },
                 {
                   title: "Frameworks & Libraries",
-                  skills: "React, Next.js, Flask, Flutter"
+                  skills: "React, Next.js, Flask, Flutter, Spring Boot"
                 },
                 {
                   title: "Databases & Storage",
