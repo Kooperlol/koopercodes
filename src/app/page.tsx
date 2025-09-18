@@ -236,7 +236,7 @@ export default function Home() {
               <div className="w-full md:w-2/3">
                 <h3 className="text-2xl font-bold mb-2 text-white">University of Wisconsin-La Crosse</h3>
                 <p className="text-xl mb-4 text-blue-400">Bachelor of Science in Computer Science — AI Concentration, Mathematics Minor</p>
-                <p className="text-gray-400 mb-4">Expected Graduation: Spring 2028</p>
+                <p className="text-gray-400 mb-4">Expected Graduation: Fall 2027</p>
               </div>
             </div>
           </motion.div>
@@ -281,7 +281,7 @@ export default function Home() {
                 </div>
                 <div className="w-full md:w-2/3">
                   <div className="text-center md:text-left">
-                    <h3 className="text-xl md:text-2xl font-bold text-white">Software Engineer Intern</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-white">Freelance Developer</h3>
                     <p className="text-sm md:text-base text-blue-400">Pettit's Lakeview Campground & Bar</p>
                     <p className="text-sm md:text-base text-gray-400">June 2025 - August 2025</p>
                   </div>
@@ -329,41 +329,6 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-4xl w-full space-y-8"
           >
-            {/* Nexa Database */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-                <div className="w-full md:w-1/3 flex justify-center">
-                  <Image
-                    src="/images/nexa.png"
-                    alt="Nexa Database Project Screenshot"
-                    width={200}
-                    height={200}
-                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
-                  />
-                </div>
-                <div className="w-full md:w-2/3">
-                  <div className="text-center md:text-left">
-                    <a 
-                      href="https://github.com/Kooperlol/nexadb"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group"
-                    >
-                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Nexa Database</h3>
-                      <p className="text-sm md:text-base text-blue-400">Next.js, TypeScript, Prisma, MongoDB, Chakra UI</p>
-                    </a>
-                  </div>
-                  <div className="mt-2 text-left">
-                    <p className="text-sm md:text-base text-gray-300">A fully featured careers platform for a fictional database company, built with modern full-stack technologies. Designed to showcase industry-level practices in scalability, responsive design, and seamless user experience.</p>
-                    <p className="text-sm md:text-base text-blue-400 mt-2">Earned 1st place in Wisconsin and 4th place nationally in the FBLA Website Coding & Development competition.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
             {/* MHS Laude System */}
             <motion.div
               variants={fadeInUp}
@@ -394,6 +359,41 @@ export default function Home() {
                   <div className="mt-2 text-left">
                     <p className="text-sm md:text-base text-gray-300">An automated transcript processing and academic distinction tracking platform tailored for high schools. The system calculates laude standings, GPA, and progression insights, giving students and administrators an intuitive way to track academic performance.</p>
                     <p className="text-sm md:text-base text-blue-400 mt-2">Deployed at Milton High School, where it actively supports hundreds of students in monitoring their academic success in real time.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Nexa Database */}
+            <motion.div
+              variants={fadeInUp}
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+            >
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
+                  <Image
+                    src="/images/nexa.png"
+                    alt="Nexa Database Project Screenshot"
+                    width={200}
+                    height={200}
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
+                  />
+                </div>
+                <div className="w-full md:w-2/3">
+                  <div className="text-center md:text-left">
+                    <a 
+                      href="https://github.com/Kooperlol/nexadb"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Nexa Database</h3>
+                      <p className="text-sm md:text-base text-blue-400">Next.js, TypeScript, Prisma, MongoDB, Chakra UI</p>
+                    </a>
+                  </div>
+                  <div className="mt-2 text-left">
+                    <p className="text-sm md:text-base text-gray-300">A fully featured careers platform for a fictional database company, built with modern full-stack technologies. Designed to showcase industry-level practices in scalability, responsive design, and seamless user experience.</p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">Earned 1st place in Wisconsin and 4th place nationally in the FBLA Website Coding & Development competition.</p>
                   </div>
                 </div>
               </div>
@@ -430,63 +430,6 @@ export default function Home() {
                     <p className="text-sm md:text-base text-gray-300">A cross-platform real-time communication app for schools, enabling seamless announcements, messaging, and collaboration between staff and students. Developed with a focus on reliability and accessibility for educational environments.</p>
                     <p className="text-sm md:text-base text-blue-400 mt-2">Won 1st place in Wisconsin and 4th place nationally in the FBLA Mobile App Development competition.</p>
                   </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Minecraft Development Projects */}
-            <motion.div
-              variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
-            >
-              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-                <div className="w-full md:w-1/3 flex justify-center">
-                  <Image
-                    src="/images/minecraft-projects.png"
-                    alt="Minecraft Development Projects Screenshot"
-                    width={200}
-                    height={200}
-                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
-                  />
-                </div>
-                <div className="w-full md:w-2/3">
-                  <div className="text-center md:text-left">
-                    <h3 className="text-xl md:text-2xl font-bold text-white">Minecraft Development Projects</h3>
-                    <p className="text-sm md:text-base text-blue-400">Innovative tools and frameworks created to expand the Minecraft development ecosystem, combining performance optimization with custom feature support.</p>
-                  </div>
-                  <ul className="mt-4 space-y-4 text-left">
-                    {[
-                      {
-                        title: "Chroma",
-                        description: "A custom Paper fork that unlocks new client-side features and optimizations, powering my server 'Quarry' with 50+ concurrent players.",
-                        link: "https://github.com/Kooperlol/Chroma",
-                      },
-                      {
-                        title: "Blockify",
-                        description: "A comprehensive library for client-side block management with advanced caching and performance tuning, built to scale for hundreds of players per instance.",
-                        link: "https://github.com/Kooperlol/Blockify",
-                      }
-                    ].map((project, index) => (
-                      <motion.li
-                        key={index}
-                        variants={fadeInUp}
-                        className="flex flex-col gap-1"
-                      >
-                        <a 
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-start text-gray-300 hover:text-blue-400 transition-colors group"
-                        >
-                          <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
-                          <div>
-                            <span className="font-semibold group-hover:text-blue-400 text-sm md:text-base">{project.title}</span>
-                            <p className="text-xs md:text-sm text-gray-400 mt-1">{project.description}</p>
-                          </div>
-                        </a>
-                      </motion.li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             </motion.div>
