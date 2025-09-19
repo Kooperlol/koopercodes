@@ -57,11 +57,11 @@ export default function Home() {
   }, [headerRef]);
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800 text-white min-h-screen">
       <Navbar />
 
       <Image
-        className="top-0 left-0 absolute object-cover w-screen h-screen opacity-20"
+        className="top-0 left-0 absolute object-cover w-full h-full opacity-20"
         priority
         draggable={false}
         src="/images/banner.svg"
@@ -70,14 +70,14 @@ export default function Home() {
         alt={"Banner Image"}
       />
       <KooperParticles />
-      <div className="container flex flex-col max-w-7xl mx-auto px-4 pt-16">
+      <div className="container flex flex-col max-w-7xl mx-auto px-4 pt-16 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           id="header"
-          className="min-h-screen relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center 2xl:justify-between justify-center items-center py-16"
+          className="min-h-[100vh] relative flex 2xl:flex-row flex-col-reverse 2xl:text-left text-center 2xl:justify-between justify-center items-center py-16"
         >
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -121,8 +121,18 @@ export default function Home() {
             >
               <Button
                 onClick={() => router.push("/contact")}
-                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
               >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
                 Get in Touch
               </Button>
               <Button
@@ -142,7 +152,7 @@ export default function Home() {
                 GitHub
               </Button>
               <Button
-                onClick={() => window.open("https://www.linkedin.com/in/kooper-propp-ab42a0284/", "_blank")}
+                onClick={() => window.open("https://www.linkedin.com/in/kooperpropp/", "_blank")}
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
               >
                 <svg
@@ -156,6 +166,22 @@ export default function Home() {
                   />
                 </svg>
                 LinkedIn
+              </Button>
+              <Button
+                onClick={() => window.open("https://www.linkedin.com/in/kooperpropp/overlay/1758312761671/single-media-viewer/?profileId=ACoAAEUZCCgBhrHsFBkox_5GAfDSveox06LGlL0", "_blank")}
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"
+                  />
+                </svg>
+                Resume
               </Button>
             </motion.div>
           </motion.div>
@@ -191,13 +217,13 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           id="about"
-          className="py-32 flex flex-col text-lg text-white text-center gap-3 items-center justify-center"
+          className="py-32 flex flex-col text-lg text-white text-center gap-3 items-center justify-center border-t border-b border-gray-700/30"
         >
           <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
             About Me
           </h2>
           <p className="max-w-2xl text-gray-300 leading-relaxed">
-          I’m a dedicated Computer Science student with a passion for building efficient, scalable, and user-focused applications. My expertise spans full-stack web development, software design, and creating systems that solve real-world problems.
+          I'm a dedicated Computer Science student with a passion for building efficient, scalable, and user-focused applications. My expertise spans full-stack web development, software design, and creating systems that solve real-world problems.
           </p>
         </motion.div>
 
@@ -208,7 +234,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           id="education"
-          className="py-32 flex flex-col gap-3 items-center justify-center"
+          className="py-32 flex flex-col gap-3 items-center justify-center border-b border-gray-700/30"
         >
           <div className="flex items-center gap-2">
             <HiAcademicCap className="text-4xl text-blue-400" />
@@ -249,7 +275,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           id="experience"
-          className="py-32 flex flex-col gap-3 items-center justify-center"
+          className="py-32 flex flex-col gap-3 items-center justify-center border-b border-gray-700/30"
         >
           <div className="flex items-center gap-2">
             <HiBriefcase className="text-4xl text-blue-400" />
@@ -314,7 +340,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           id="projects"
-          className="py-32 flex flex-col gap-3 items-center justify-center"
+          className="py-32 flex flex-col gap-3 items-center justify-center border-b border-gray-700/30"
         >
           <div className="flex items-center gap-2">
             <HiQrCode className="text-4xl text-blue-400" />
@@ -443,7 +469,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           id="skills"
-          className="py-32 flex flex-col gap-3 items-center justify-center"
+          className="py-32 flex flex-col gap-3 items-center justify-center border-b border-gray-700/30"
         >
           <div className="flex items-center gap-2">
             <HiCog className="text-4xl text-blue-400" />
