@@ -14,15 +14,15 @@ import Navbar from "@/components/navbar";
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 export default function Home() {
@@ -44,7 +44,8 @@ export default function Home() {
     const handleScroll = () => {
       const isElementInView =
         headerRef.current?.getBoundingClientRect().top!! >= 0 &&
-        headerRef.current?.getBoundingClientRect().bottom!! <= window.innerHeight;
+        headerRef.current?.getBoundingClientRect().bottom!! <=
+          window.innerHeight;
       if (isElementInView) {
         setIsHeaderInView(true);
       }
@@ -86,7 +87,7 @@ export default function Home() {
             ref={headerRef}
             className="flex flex-col 2xl:gap-5 gap-0 lg:items-start items-center z-10"
           >
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -94,7 +95,7 @@ export default function Home() {
             >
               Hello, I'm
             </motion.p>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -113,7 +114,7 @@ export default function Home() {
                 words="Computer Science Student"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
@@ -123,11 +124,7 @@ export default function Home() {
                 onClick={() => router.push("/contact")}
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
               >
-                <svg
-                  role="img"
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5"
-                >
+                <svg role="img" viewBox="0 0 24 24" className="w-5 h-5">
                   <path
                     fill="currentColor"
                     d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
@@ -136,14 +133,12 @@ export default function Home() {
                 Get in Touch
               </Button>
               <Button
-                onClick={() => window.open("https://github.com/Kooperlol", "_blank")}
+                onClick={() =>
+                  window.open("https://github.com/Kooperlol", "_blank")
+                }
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
               >
-                <svg
-                  role="img"
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5"
-                >
+                <svg role="img" viewBox="0 0 24 24" className="w-5 h-5">
                   <path
                     fill="currentColor"
                     d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
@@ -152,14 +147,15 @@ export default function Home() {
                 GitHub
               </Button>
               <Button
-                onClick={() => window.open("https://www.linkedin.com/in/kooperpropp/", "_blank")}
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/kooperpropp/",
+                    "_blank"
+                  )
+                }
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
               >
-                <svg
-                  role="img"
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5"
-                >
+                <svg role="img" viewBox="0 0 24 24" className="w-5 h-5">
                   <path
                     fill="currentColor"
                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
@@ -168,14 +164,15 @@ export default function Home() {
                 LinkedIn
               </Button>
               <Button
-                onClick={() => window.open("https://www.linkedin.com/in/kooperpropp/overlay/1758312761671/single-media-viewer/?profileId=ACoAAEUZCCgBhrHsFBkox_5GAfDSveox06LGlL0", "_blank")}
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/kooperpropp/overlay/1764880786673/single-media-viewer/?profileId=ACoAAEUZCCgBhrHsFBkox_5GAfDSveox06LGlL0",
+                    "_blank"
+                  )
+                }
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20 flex items-center gap-2"
               >
-                <svg
-                  role="img"
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5"
-                >
+                <svg role="img" viewBox="0 0 24 24" className="w-5 h-5">
                   <path
                     fill="currentColor"
                     d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"
@@ -223,7 +220,10 @@ export default function Home() {
             About Me
           </h2>
           <p className="max-w-2xl text-gray-300 leading-relaxed">
-          I'm a dedicated Computer Science student with a passion for building efficient, scalable, and user-focused applications. My expertise spans full-stack web development, software design, and creating systems that solve real-world problems.
+            I'm a dedicated Computer Science student with a passion for building
+            efficient, scalable, and user-focused applications. My expertise
+            spans full-stack web development, software design, and creating
+            systems that solve real-world problems.
           </p>
         </motion.div>
 
@@ -260,9 +260,16 @@ export default function Home() {
                 />
               </div>
               <div className="w-full md:w-2/3">
-                <h3 className="text-2xl font-bold mb-2 text-white">University of Wisconsin-La Crosse</h3>
-                <p className="text-xl mb-4 text-blue-400">Bachelor of Science in Computer Science — AI Concentration, Mathematics Minor</p>
-                <p className="text-gray-400 mb-4">Expected Graduation: Fall 2027</p>
+                <h3 className="text-2xl font-bold mb-2 text-white">
+                  University of Wisconsin-La Crosse
+                </h3>
+                <p className="text-xl mb-4 text-blue-400">
+                  Bachelor of Science in Computer Science — AI Concentration,
+                  Information Systems Minor
+                </p>
+                <p className="text-gray-400 mb-4">
+                  Expected Graduation: Fall 2027
+                </p>
               </div>
             </div>
           </motion.div>
@@ -290,7 +297,6 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-4xl w-full space-y-8"
           >
-            {/* Software Engineer Intern */}
             <motion.div
               variants={fadeInUp}
               className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
@@ -307,9 +313,15 @@ export default function Home() {
                 </div>
                 <div className="w-full md:w-2/3">
                   <div className="text-center md:text-left">
-                    <h3 className="text-xl md:text-2xl font-bold text-white">Freelance Developer</h3>
-                    <p className="text-sm md:text-base text-blue-400">Pettit's Lakeview Campground & Bar</p>
-                    <p className="text-sm md:text-base text-gray-400">June 2025 - August 2025</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-white">
+                      Freelance Developer
+                    </h3>
+                    <p className="text-sm md:text-base text-blue-400">
+                      Pettit's Lakeview Campground & Bar
+                    </p>
+                    <p className="text-sm md:text-base text-gray-400">
+                      June 2025 - August 2025
+                    </p>
                   </div>
                   <ul className="mt-4 space-y-2 text-left">
                     {[
@@ -323,7 +335,9 @@ export default function Home() {
                         className="flex items-start text-gray-300"
                       >
                         <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
-                        <span className="text-sm md:text-base">{achievement}</span>
+                        <span className="text-sm md:text-base">
+                          {achievement}
+                        </span>
                       </motion.li>
                     ))}
                   </ul>
@@ -372,19 +386,33 @@ export default function Home() {
                 </div>
                 <div className="w-full md:w-2/3">
                   <div className="text-center md:text-left">
-                    <a 
+                    <a
                       href="https://github.com/Kooperlol/mhslaude"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group"
                     >
-                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">MHS Laude System</h3>
-                      <p className="text-sm md:text-base text-blue-400">Next.js, TypeScript, Python, Chakra UI</p>
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                        MHS Laude System
+                      </h3>
+                      <p className="text-sm md:text-base text-blue-400">
+                        Next.js, TypeScript, Python, Chakra UI
+                      </p>
                     </a>
                   </div>
                   <div className="mt-2 text-left">
-                    <p className="text-sm md:text-base text-gray-300">An automated transcript processing and academic distinction tracking platform tailored for high schools. The system calculates laude standings, GPA, and progression insights, giving students and administrators an intuitive way to track academic performance.</p>
-                    <p className="text-sm md:text-base text-blue-400 mt-2">Deployed at Milton High School, where it actively supports hundreds of students in monitoring their academic success in real time.</p>
+                    <p className="text-sm md:text-base text-gray-300">
+                      An automated transcript processing and academic
+                      distinction tracking platform tailored for high schools.
+                      The system calculates laude standings, GPA, and
+                      progression insights, giving students and administrators
+                      an intuitive way to track academic performance.
+                    </p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">
+                      Deployed at Milton High School, where it actively supports
+                      hundreds of students in monitoring their academic success
+                      in real time.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -407,19 +435,32 @@ export default function Home() {
                 </div>
                 <div className="w-full md:w-2/3">
                   <div className="text-center md:text-left">
-                    <a 
+                    <a
                       href="https://github.com/Kooperlol/nexadb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group"
                     >
-                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Nexa Database</h3>
-                      <p className="text-sm md:text-base text-blue-400">Next.js, TypeScript, Prisma, MongoDB, Chakra UI</p>
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                        Nexa Database
+                      </h3>
+                      <p className="text-sm md:text-base text-blue-400">
+                        Next.js, TypeScript, Prisma, MongoDB, Chakra UI
+                      </p>
                     </a>
                   </div>
                   <div className="mt-2 text-left">
-                    <p className="text-sm md:text-base text-gray-300">A fully featured careers platform for a fictional database company, built with modern full-stack technologies. Designed to showcase industry-level practices in scalability, responsive design, and seamless user experience.</p>
-                    <p className="text-sm md:text-base text-blue-400 mt-2">Earned 1st place in Wisconsin and 4th place nationally in the FBLA Website Coding & Development competition.</p>
+                    <p className="text-sm md:text-base text-gray-300">
+                      A fully featured careers platform for a fictional database
+                      company, built with modern full-stack technologies.
+                      Designed to showcase industry-level practices in
+                      scalability, responsive design, and seamless user
+                      experience.
+                    </p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">
+                      Earned 1st place in Wisconsin and 4th place nationally in
+                      the FBLA Website Coding & Development competition.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -442,19 +483,32 @@ export default function Home() {
                 </div>
                 <div className="w-full md:w-2/3">
                   <div className="text-center md:text-left">
-                    <a 
+                    <a
                       href="https://github.com/Kooperlol/milton_relay"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group"
                     >
-                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Milton Relay</h3>
-                      <p className="text-sm md:text-base text-blue-400">Flutter, Dart, Firebase</p>
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                        Milton Relay
+                      </h3>
+                      <p className="text-sm md:text-base text-blue-400">
+                        Flutter, Dart, Firebase
+                      </p>
                     </a>
                   </div>
                   <div className="mt-2 text-left">
-                    <p className="text-sm md:text-base text-gray-300">A cross-platform real-time communication app for schools, enabling seamless announcements, messaging, and collaboration between staff and students. Developed with a focus on reliability and accessibility for educational environments.</p>
-                    <p className="text-sm md:text-base text-blue-400 mt-2">Won 1st place in Wisconsin and 4th place nationally in the FBLA Mobile App Development competition.</p>
+                    <p className="text-sm md:text-base text-gray-300">
+                      A cross-platform real-time communication app for schools,
+                      enabling seamless announcements, messaging, and
+                      collaboration between staff and students. Developed with a
+                      focus on reliability and accessibility for educational
+                      environments.
+                    </p>
+                    <p className="text-sm md:text-base text-blue-400 mt-2">
+                      Won 1st place in Wisconsin and 4th place nationally in the
+                      FBLA Mobile App Development competition.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -488,15 +542,15 @@ export default function Home() {
               {[
                 {
                   title: "Programming Languages",
-                  skills: "Java, Kotlin, JavaScript/TypeScript, Dart, Python"
+                  skills: "Java, Kotlin, JavaScript/TypeScript, Dart, Python",
                 },
                 {
                   title: "Frameworks & Libraries",
-                  skills: "React, Next.js, Flask, Flutter, Spring Boot"
+                  skills: "React, Next.js, Flask, Flutter, Spring Boot",
                 },
                 {
                   title: "Databases & Storage",
-                  skills: "Firebase, MongoDB, SQL, FileMaker"
+                  skills: "Firebase, MongoDB, SQL, FileMaker",
                 },
               ].map((category, index) => (
                 <motion.div
@@ -504,7 +558,9 @@ export default function Home() {
                   variants={fadeInUp}
                   className={`md:col-span-2`}
                 >
-                  <h3 className="text-xl font-bold mb-3 text-white">{category.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 text-white">
+                    {category.title}
+                  </h3>
                   <p className="text-gray-300">{category.skills}</p>
                 </motion.div>
               ))}
@@ -526,7 +582,9 @@ export default function Home() {
               Let's Connect
             </h2>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              I am always interested in discussing new projects, innovative ideas, or opportunities to contribute to your vision. Feel free to reach out.
+              I am always interested in discussing new projects, innovative
+              ideas, or opportunities to contribute to your vision. Feel free to
+              reach out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
