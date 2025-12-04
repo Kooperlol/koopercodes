@@ -304,11 +304,74 @@ export default function Home() {
               <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
                 <div className="w-full md:w-1/3 flex justify-center">
                   <Image
+                    src="/images/harbor-logo.png"
+                    alt="The Harbor at Newville Logo"
+                    width={200}
+                    height={200}
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
+                  />
+                </div>
+                <div className="w-full md:w-2/3">
+                  <div className="text-center md:text-left">
+                    <a
+                      href="https://www.theharboratnewville.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group"
+                    >
+                      <h3 className="text-xl md:text-2xl font-bold text-white">
+                        Website Developer
+                      </h3>
+                      <p className="text-sm md:text-base text-blue-400">
+                        The Harbor at Newville
+                      </p>
+                      <p className="text-sm md:text-base text-gray-400">
+                        November 2025
+                      </p>
+                    </a>
+                  </div>
+                  <ul className="mt-4 space-y-2 text-left">
+                    {[
+                      "Rebuilt and deployed a Next.js website with Tailwind and Strapi, consolidating multiple tools into a single platform with faster load times, mobile-friendly pages, and simplified content management.",
+                      "Developed a custom inventory system for boats and motors, enabling real-time updates, improving efficiency, and reducing administrative overhead.",
+                      "Redesigned the website layout with optimized SEO, clean forms, and automated email notifications, boosting discoverability and customer interaction.",
+                      "Implemented a self-managed admin UI, allowing the client to control content, inventory, and forms independently, streamlining workflow.",
+                    ].map((achievement, index) => (
+                      <motion.li
+                        key={index}
+                        variants={fadeInUp}
+                        className="flex items-start text-gray-300"
+                      >
+                        <MdCheckCircle className="text-blue-400 text-xl mr-2 mt-1 flex-shrink-0" />
+                        <span className="text-sm md:text-base">
+                          {achievement}
+                        </span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="max-w-4xl w-full space-y-8"
+          >
+            <motion.div
+              variants={fadeInUp}
+              className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
+            >
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                <div className="w-full md:w-1/3 flex justify-center">
+                  <Image
                     src="/images/lakeview.png"
                     alt="Pettit's Lakeview Campground & Bar Logo"
                     width={200}
                     height={200}
-                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain"
+                    className="rounded-lg w-48 h-48 md:w-auto md:h-auto object-contain bg-white p-5"
                   />
                 </div>
                 <div className="w-full md:w-2/3">
@@ -369,7 +432,6 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-4xl w-full space-y-8"
           >
-            {/* MHS Laude System */}
             <motion.div
               variants={fadeInUp}
               className="bg-gray-800/50 backdrop-blur-sm p-4 sm:p-8 rounded-xl shadow-xl border border-gray-700/50 hover:border-blue-400/50 transition-colors duration-300"
