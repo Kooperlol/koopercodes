@@ -166,7 +166,7 @@ export default function Home() {
               <Button
                 onClick={() =>
                   window.open(
-                    "https://www.linkedin.com/in/kooperpropp/overlay/1764880786673/single-media-viewer/?profileId=ACoAAEUZCCgBhrHsFBkox_5GAfDSveox06LGlL0",
+                    "https://www.linkedin.com/in/kooperpropp/overlay/1765226637795/single-media-viewer/?profileId=ACoAAEUZCCgBhrHsFBkox_5GAfDSveox06LGlL0",
                     "_blank"
                   )
                 }
