@@ -1,23 +1,9 @@
 "use client";
-import KooperParticles from "@/components/particles";
-import {
-  Box,
-  Button,
-  Heading,
-  Input,
-  Stack,
-  Text,
-  Textarea,
-} from "@chakra-ui/react";
-import Image from "next/image";
-import contact1video from "@/../public/videos/contact_1.gif";
-import contact2video from "@/../public/videos/contact_2.gif";
-import React, { useRef, useState } from "react";
-import { useToast } from "@chakra-ui/react";
+
 import axios from "axios";
+import Link from "next/link";
+import { useRef, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import Navbar from "@/components/navbar";
 
 interface FormDataValues {
@@ -28,263 +14,148 @@ interface FormDataValues {
   gRecaptchaToken: string;
 }
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
+type FormStatus = { type: "success" | "error"; message: string } | null;
 
-const ContactPage = () => {
-  const router = useRouter();
-  const [randomGif] = useState(() => Math.random() < 0.5 ? contact1video : contact2video);
-
-  const toast = useToast();
+export default function ContactPage() {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const formRef = useRef<HTMLFormElement>(null);
-  const [isEmailing, setEmailing] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<FormStatus>(null);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (isEmailing) {
-      return;
-    }
+    if (isSubmitting) return;
 
-    setEmailing(true);
+    setIsSubmitting(true);
+    setStatus(null);
 
-    const formData = new FormData(e.currentTarget as HTMLFormElement);
-    formData.append("firstname", e.currentTarget.firstname.value.trim());
-    formData.append("lastname", e.currentTarget.lastname.value.trim());
-    formData.append("email", e.currentTarget.email.value.trim());
-    formData.append("message", e.currentTarget.message.value.trim());
+    const form = e.currentTarget;
+    const data = {
+      firstname: (form.elements.namedItem("firstname") as HTMLInputElement).value.trim(),
+      lastname: (form.elements.namedItem("lastname") as HTMLInputElement).value.trim(),
+      email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim(),
+    };
 
-    if (
-      !formData.get("firstname") ||
-      !formData.get("lastname") ||
-      !formData.get("email") ||
-      !formData.get("message")
-    ) {
-      toast({
-        title: "Missing fields",
-        description: "Please fill out all fields before submitting.",
-        status: "error",
-        duration: 9000,
-        isClosable: true,
-      });
-      setEmailing(false);
+    if (!data.firstname || !data.lastname || !data.email || !data.message) {
+      setStatus({ type: "error", message: "Please fill out all fields." });
+      setIsSubmitting(false);
       return;
     }
 
     if (!executeRecaptcha) {
-      console.log("Execute recaptcha not available yet");
-      alert(
-        "Execute recaptcha not available yet likely meaning key not recaptcha key not set"
-      );
+      setStatus({ type: "error", message: "Captcha not ready. Please try again." });
+      setIsSubmitting(false);
       return;
     }
 
-    executeRecaptcha("inquirySubmit").then((gRecaptchaToken) => {
-      const data: FormDataValues = {
-        firstname: formData.get("firstname") as string,
-        lastname: formData.get("lastname") as string,
-        email: formData.get("email") as string,
-        message: formData.get("message") as string,
-        gRecaptchaToken: gRecaptchaToken,
-      };
-      const sendEmail = async () => {
-        const response = await axios.post("/api/email", data, {
-          headers: {
-            "Content-Type": "application/json",
-          },
+    executeRecaptcha("inquirySubmit").then(async (gRecaptchaToken) => {
+      try {
+        const payload: FormDataValues = { ...data, gRecaptchaToken };
+        const response = await axios.post("/api/email", payload, {
+          headers: { "Content-Type": "application/json" },
         });
+
         formRef.current?.reset();
+
         if (response?.data?.success === false) {
-          toast({
-            title: "Failed to send email",
-            description:
-              "We were unable to send your email. Please try again later.",
-            status: "error",
-            duration: 9000,
-            isClosable: true,
+          setStatus({
+            type: "error",
+            message: "Unable to send your message. Please try again.",
           });
         } else {
-          toast({
-            title: "Email sent",
-            description: "Your email has been sent successfully.",
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-          });
+          setStatus({ type: "success", message: "Message sent successfully." });
         }
-        setEmailing(false);
-      };
-      sendEmail();
+      } catch {
+        setStatus({
+          type: "error",
+          message: "Something went wrong. Please try again.",
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
     });
   };
 
+  const inputClass =
+    "w-full rounded-lg border border-neutral-800 bg-neutral-900 px-4 py-2.5 text-sm text-neutral-100 placeholder:text-neutral-600 outline-none transition-colors focus:border-neutral-600";
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="min-h-screen bg-neutral-950 text-neutral-100">
       <Navbar />
-      
-      <Image
-        className="top-0 left-0 absolute object-cover w-screen h-screen opacity-20"
-        priority
-        draggable={false}
-        src="/images/banner.svg"
-        width={1920}
-        height={1080}
-        alt={"Banner Image"}
-      />
-      <KooperParticles />
-      
-      <Image
-        className="z-10 absolute bottom-0 right-0 w-1/3 object-cover lg:block hidden"
-        draggable={false}
-        priority
-        style={{ maxHeight: "75%" }}
-        width={1920}
-        height={1080}
-        src={randomGif}
-        alt="Contact Video"
-      />
-      
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="container mx-auto px-4 pt-32 pb-16 relative z-10 min-h-[calc(100vh-4rem)] flex items-center justify-center"
-      >
-        <div className="flex justify-center w-full">
-          <Stack
-            bg={"gray.800/50"}
-            backdropBlur="md"
-            rounded={"xl"}
-            p={{ base: 6, sm: 8, md: 10 }}
-            spacing={{ base: 8 }}
-            className="w-full max-w-2xl border border-gray-700/50 shadow-2xl shadow-blue-500/10 hover:shadow-blue-500/20 transition-all duration-300 hover:border-blue-400/50"
-          >
-            <Stack spacing={4}>
-              <Heading
-                color={"white"}
-                lineHeight={1.1}
-                fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
-                className="text-center"
-              >
-                Contact Kooper
-                <Text
-                  as={"span"}
-                  bgGradient="linear(to-r, blue.400, purple.500)"
-                  bgClip="text"
-                >
-                  !
-                </Text>
-              </Heading>
-              <Text color={"gray.300"} fontSize={{ base: "sm", sm: "md" }} className="text-center">
-                I'm always looking for new opportunities to collaborate with
-                others. Whether you're looking for a new website, a new feature,
-                or just want to chat, I'm always open to new ideas. Alternatively,
-                you can email me at{" "}
-                <a href="mailto:koopercodes@gmail.com" className="text-blue-400 hover:text-blue-300">
-                  koopercodes@gmail.com
-                </a>.
-              </Text>
-            </Stack>
-            <Box as={"form"} ref={formRef} id="contact" onSubmit={handleSubmit}>
-              <Stack spacing={4}>
-                <Input
-                  id="firstname"
-                  placeholder="First Name"
-                  bg={"gray.700/50"}
-                  border={0}
-                  color={"black"}
-                  _placeholder={{
-                    color: "gray.400",
-                  }}
-                  _hover={{
-                    bg: "gray.700/70",
-                  }}
-                  _focus={{
-                    bg: "gray.700/70",
-                    borderColor: "blue.400",
-                  }}
-                />
-                <Input
-                  id="lastname"
-                  placeholder="Last Name"
-                  bg={"gray.700/50"}
-                  border={0}
-                  color={"black"}
-                  _placeholder={{
-                    color: "gray.400",
-                  }}
-                  _hover={{
-                    bg: "gray.700/70",
-                  }}
-                  _focus={{
-                    bg: "gray.700/70",
-                    borderColor: "blue.400",
-                  }}
-                />
-                <Input
-                  id="email"
-                  placeholder="Email"
-                  bg={"gray.700/50"}
-                  border={0}
-                  type="email"
-                  color={"black"}
-                  _placeholder={{
-                    color: "gray.400",
-                  }}
-                  _hover={{
-                    bg: "gray.700/70",
-                  }}
-                  _focus={{
-                    bg: "gray.700/70",
-                    borderColor: "blue.400",
-                  }}
-                />
-                <Textarea
-                  id="message"
-                  placeholder="Message"
-                  bg={"gray.700/50"}
-                  border={0}
-                  color={"black"}
-                  _placeholder={{
-                    color: "gray.400",
-                  }}
-                  _hover={{
-                    bg: "gray.700/70",
-                  }}
-                  _focus={{
-                    bg: "gray.700/70",
-                    borderColor: "blue.400",
-                  }}
-                />
-              </Stack>
-              <Button
-                fontFamily={"heading"}
-                mt={8}
-                w={"full"}
-                bgGradient="linear(to-r, blue.500, purple.500)"
-                color={"white"}
-                type="submit"
-                _hover={{
-                  bgGradient: "linear(to-r, blue.600, purple.600)",
-                  boxShadow: "xl",
-                  transform: "scale(1.02)",
-                }}
-                transition="all 0.3s"
-                size="lg"
-                fontSize="lg"
-                py={6}
-              >
-                Submit
-              </Button>
-            </Box>
-          </Stack>
+
+      <main className="mx-auto max-w-2xl px-6 pt-28 pb-20">
+        <Link
+          href="/"
+          className="text-sm text-neutral-500 transition-colors hover:text-neutral-300"
+        >
+          ← Back
+        </Link>
+
+        <div className="mt-8 space-y-3">
+          <h1 className="text-2xl font-semibold tracking-tight">Contact</h1>
+          <p className="text-sm text-neutral-400 leading-relaxed">
+            Or email directly at{" "}
+            <a
+              href="mailto:koopercodes@gmail.com"
+              className="text-neutral-300 underline-offset-4 hover:underline"
+            >
+              koopercodes@gmail.com
+            </a>
+            .
+          </p>
         </div>
-      </motion.div>
+
+        <form ref={formRef} onSubmit={handleSubmit} className="mt-10 space-y-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <input
+              id="firstname"
+              name="firstname"
+              placeholder="First name"
+              className={inputClass}
+            />
+            <input
+              id="lastname"
+              name="lastname"
+              placeholder="Last name"
+              className={inputClass}
+            />
+          </div>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            className={inputClass}
+          />
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Message"
+            rows={5}
+            className={`${inputClass} resize-none`}
+          />
+
+          {status && (
+            <p
+              className={`text-sm ${
+                status.type === "success" ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {status.message}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="rounded-lg border border-neutral-700 bg-neutral-900 px-5 py-2.5 text-sm font-medium transition-colors hover:border-neutral-500 hover:bg-neutral-800 disabled:opacity-50"
+          >
+            {isSubmitting ? "Sending…" : "Send message"}
+          </button>
+        </form>
+      </main>
     </div>
   );
-};
-
-export default ContactPage;
+}

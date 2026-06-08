@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import Footer from "@/components/footer";
 import GoogleCaptchaProvider from "./providers/captcha-provider";
 import { Analytics } from "@vercel/analytics/react";
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Kooper Codes",
-  description:
-    "A passionate computer science student specializing in creating innovative, high-performance applications and websites.",
+  title: "Kooper Propp",
+  description: "Computer Science student building fast, useful software.",
 };
 
 export default function RootLayout({
@@ -26,12 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} text-white`}>
+      <body className={`${inter.className} antialiased`}>
         <Analytics />
-        <ChakraProvider>
-          <GoogleCaptchaProvider>{children}</GoogleCaptchaProvider>
-          <Footer />
-        </ChakraProvider>
+        <GoogleCaptchaProvider>{children}</GoogleCaptchaProvider>
       </body>
     </html>
   );
