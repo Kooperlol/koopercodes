@@ -7,7 +7,7 @@ const links = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/kooperpropp/" },
   {
     label: "Resume",
-    href: "https://www.linkedin.com/in/kooperpropp/overlay/1765226637795/single-media-viewer/?profileId=ACoAAEUZCCgBhrHsFBkox_5GAfDSveox06LGlL0",
+    href: "https://www.linkedin.com/in/kooperpropp/overlay/1780888358669/single-media-viewer/?profileId=ACoAAEUZCCgBhrHsFBkox_5GAfDSveox06LGlL0",
   },
   { label: "Email", href: "mailto:koopercodes@gmail.com" },
 ];
